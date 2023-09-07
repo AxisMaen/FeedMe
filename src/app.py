@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtWidgets
-from Pages.untitled_ui import Ui_MainWindow
+from pages.untitled_ui import Ui_MainWindow
 
 
 if __name__ == "__main__":
