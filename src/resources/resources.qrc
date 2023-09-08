@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons"/>
+  <qresource prefix="fonts">
+    <file>fonts/SourceSans3-Italic-VariableFont_wght.ttf</file>
+    <file>fonts/SourceSans3-VariableFont_wght.ttf</file>
+  </qresource>
+</RCC>
