@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>585</height>
+    <height>591</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>585</height>
+    <height>591</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
     <item>
      <widget class="QStackedWidget" name="mainWindowStack">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="searchTab">
        <widget class="QWidget" name="searchPage" native="true">
@@ -159,7 +159,7 @@
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="shoppingListTab">
+      <widget class="QWidget" name="shoppingTab">
        <widget class="QWidget" name="shoppingPage" native="true">
         <property name="geometry">
          <rect>
@@ -226,6 +226,102 @@
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
              <widget class="QListView" name="shoppingListView">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>743</width>
+                <height>431</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius: 20px;</string>
+              </property>
+              <property name="isWrapping" stdset="0">
+               <bool>false</bool>
+              </property>
+              <property name="viewMode">
+               <enum>QListView::ListMode</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="fridgeTab">
+       <widget class="QWidget" name="fridgePage" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>782</width>
+          <height>571</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>781</width>
+          <height>571</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QLabel" name="fridgeNameLabel">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>763</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Source Sans 3</family>
+             <pointsize>20</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>My Fridge</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <property name="indent">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="fridgeListWidget" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>500</width>
+             <height>449</height>
+            </size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QListView" name="fridgeListView">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                 <horstretch>0</horstretch>
