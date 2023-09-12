@@ -3,3 +3,5 @@ src/build/
 src/dist/
 *.pyc
 .vscode/settings.json
+.pylintrc
+FeedMe.code-workspace

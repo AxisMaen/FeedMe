@@ -18,8 +18,100 @@ class Ui_FeedMe(object):
         FeedMe.setMinimumSize(QtCore.QSize(500, 591))
         self.centralwidget = QtWidgets.QWidget(FeedMe)
         self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.sidebar = QtWidgets.QWidget(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.sidebar.sizePolicy().hasHeightForWidth())
+        self.sidebar.setSizePolicy(sizePolicy)
+        self.sidebar.setMinimumSize(QtCore.QSize(201, 671))
+        self.sidebar.setStyleSheet("background-color: #202123;")
+        self.sidebar.setObjectName("sidebar")
+        self.sidebarSearchButton = QtWidgets.QPushButton(self.sidebar)
+        self.sidebarSearchButton.setGeometry(QtCore.QRect(10, 90, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(16)
+        self.sidebarSearchButton.setFont(font)
+        self.sidebarSearchButton.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.sidebarSearchButton.setAutoFillBackground(False)
+        self.sidebarSearchButton.setStyleSheet("QPushButton {\n"
+"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #A6A6A6;\n"
+"}")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/searchIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sidebarSearchButton.setIcon(icon)
+        self.sidebarSearchButton.setObjectName("sidebarSearchButton")
+        self.sidebarLabel = QtWidgets.QLabel(self.sidebar)
+        self.sidebarLabel.setGeometry(QtCore.QRect(40, 20, 121, 41))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(24)
+        font.setBold(True)
+        font.setWeight(75)
+        self.sidebarLabel.setFont(font)
+        self.sidebarLabel.setStyleSheet("color: #DBD9D8;")
+        self.sidebarLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.sidebarLabel.setObjectName("sidebarLabel")
+        self.sidebarShoppingButton = QtWidgets.QPushButton(self.sidebar)
+        self.sidebarShoppingButton.setGeometry(QtCore.QRect(10, 150, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(16)
+        self.sidebarShoppingButton.setFont(font)
+        self.sidebarShoppingButton.setStyleSheet("QPushButton {\n"
+"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #A6A6A6;\n"
+"}")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/listIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sidebarShoppingButton.setIcon(icon1)
+        self.sidebarShoppingButton.setObjectName("sidebarShoppingButton")
+        self.sidebarFridgeButton = QtWidgets.QPushButton(self.sidebar)
+        self.sidebarFridgeButton.setGeometry(QtCore.QRect(10, 210, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(16)
+        self.sidebarFridgeButton.setFont(font)
+        self.sidebarFridgeButton.setStyleSheet("QPushButton {\n"
+"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #A6A6A6;\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/fridgeIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sidebarFridgeButton.setIcon(icon2)
+        self.sidebarFridgeButton.setObjectName("sidebarFridgeButton")
+        self.sidebarRecipesButton = QtWidgets.QPushButton(self.sidebar)
+        self.sidebarRecipesButton.setGeometry(QtCore.QRect(10, 270, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(16)
+        self.sidebarRecipesButton.setFont(font)
+        self.sidebarRecipesButton.setStyleSheet("QPushButton {\n"
+"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #A6A6A6;\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/recipesIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.sidebarRecipesButton.setIcon(icon3)
+        self.sidebarRecipesButton.setObjectName("sidebarRecipesButton")
+        self.horizontalLayout.addWidget(self.sidebar)
         self.mainWindowStack = QtWidgets.QStackedWidget(self.centralwidget)
-        self.mainWindowStack.setGeometry(QtCore.QRect(216, 9, 796, 662))
         self.mainWindowStack.setObjectName("mainWindowStack")
         self.searchTab = QtWidgets.QWidget()
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
@@ -287,100 +379,7 @@ class Ui_FeedMe(object):
         self.verticalLayout_9.addWidget(self.recipesListWidget)
         self.verticalLayout_14.addWidget(self.recipesPage)
         self.mainWindowStack.addWidget(self.recipesTab)
-        self.sidebar = QtWidgets.QWidget(self.centralwidget)
-        self.sidebar.setGeometry(QtCore.QRect(9, 9, 201, 671))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.sidebar.sizePolicy().hasHeightForWidth())
-        self.sidebar.setSizePolicy(sizePolicy)
-        self.sidebar.setMinimumSize(QtCore.QSize(201, 671))
-        self.sidebar.setStyleSheet("background-color: #202123;")
-        self.sidebar.setObjectName("sidebar")
-        self.sidebarSearchButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarSearchButton.setGeometry(QtCore.QRect(10, 90, 181, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(16)
-        self.sidebarSearchButton.setFont(font)
-        self.sidebarSearchButton.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.sidebarSearchButton.setAutoFillBackground(False)
-        self.sidebarSearchButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/searchIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sidebarSearchButton.setIcon(icon)
-        self.sidebarSearchButton.setObjectName("sidebarSearchButton")
-        self.sidebarLabel = QtWidgets.QLabel(self.sidebar)
-        self.sidebarLabel.setGeometry(QtCore.QRect(40, 20, 121, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(24)
-        font.setBold(True)
-        font.setWeight(75)
-        self.sidebarLabel.setFont(font)
-        self.sidebarLabel.setStyleSheet("color: #DBD9D8;")
-        self.sidebarLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.sidebarLabel.setObjectName("sidebarLabel")
-        self.sidebarShoppingButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarShoppingButton.setGeometry(QtCore.QRect(10, 150, 181, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(16)
-        self.sidebarShoppingButton.setFont(font)
-        self.sidebarShoppingButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/listIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sidebarShoppingButton.setIcon(icon1)
-        self.sidebarShoppingButton.setObjectName("sidebarShoppingButton")
-        self.sidebarFridgeButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarFridgeButton.setGeometry(QtCore.QRect(10, 210, 181, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(16)
-        self.sidebarFridgeButton.setFont(font)
-        self.sidebarFridgeButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/fridgeIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sidebarFridgeButton.setIcon(icon2)
-        self.sidebarFridgeButton.setObjectName("sidebarFridgeButton")
-        self.sidebarRecipesButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarRecipesButton.setGeometry(QtCore.QRect(10, 270, 181, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(16)
-        self.sidebarRecipesButton.setFont(font)
-        self.sidebarRecipesButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Matthew\\Documents\\GitHub\\FeedMe\\src\\pages\\../resources/icons/recipesIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sidebarRecipesButton.setIcon(icon3)
-        self.sidebarRecipesButton.setObjectName("sidebarRecipesButton")
-        self.sidebarIcons = QtWidgets.QWidget(self.centralwidget)
-        self.sidebarIcons.setGeometry(QtCore.QRect(-20, 20, 120, 80))
-        self.sidebarIcons.setObjectName("sidebarIcons")
+        self.horizontalLayout.addWidget(self.mainWindowStack)
         FeedMe.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(FeedMe)
         self.statusbar.setObjectName("statusbar")
@@ -393,15 +392,15 @@ class Ui_FeedMe(object):
     def retranslateUi(self, FeedMe):
         _translate = QtCore.QCoreApplication.translate
         FeedMe.setWindowTitle(_translate("FeedMe", "Feed Me"))
+        self.sidebarSearchButton.setText(_translate("FeedMe", "   Food Search"))
+        self.sidebarLabel.setText(_translate("FeedMe", "Feed Me"))
+        self.sidebarShoppingButton.setText(_translate("FeedMe", "   Shopping List"))
+        self.sidebarFridgeButton.setText(_translate("FeedMe", "   My Fridge"))
+        self.sidebarRecipesButton.setText(_translate("FeedMe", "   Recipes"))
         self.searchNameLabel.setText(_translate("FeedMe", "Food Search"))
         self.searchLineEdit.setPlaceholderText(_translate("FeedMe", "🔍 Search"))
         self.shoppingNameLabel.setText(_translate("FeedMe", "Shopping List"))
         self.fridgeNameLabel.setText(_translate("FeedMe", "My Fridge"))
         self.recipesNameLabel.setText(_translate("FeedMe", "Recipes"))
         self.recipesLineEdit.setPlaceholderText(_translate("FeedMe", "🔍 Search"))
-        self.sidebarSearchButton.setText(_translate("FeedMe", "   Food Search"))
-        self.sidebarLabel.setText(_translate("FeedMe", "Feed Me"))
-        self.sidebarShoppingButton.setText(_translate("FeedMe", "   Shopping List"))
-        self.sidebarFridgeButton.setText(_translate("FeedMe", "   My Fridge"))
-        self.sidebarRecipesButton.setText(_translate("FeedMe", "   Recipes"))
 import resources_rc
