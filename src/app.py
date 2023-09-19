@@ -13,6 +13,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.sidebarShoppingButton.clicked.connect(self.sidebarShoppingButtonClicked)
         self.sidebarFridgeButton.clicked.connect(self.sidebarFridgeButtonClicked)
         self.sidebarRecipesButton.clicked.connect(self.sidebarRecipesButtonClicked)
+        self.sidebarNutritionButton.clicked.connect(self.sidebarNutritionButtonClicked)
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
@@ -29,6 +30,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     # switch to recipes page when sidebar button is clicked
     def sidebarRecipesButtonClicked(self):
         self.mainWindowStack.setCurrentIndex(3)
+
+    # switch to recipes page when sidebar button is clicked
+    def sidebarNutritionButtonClicked(self):
+        self.mainWindowStack.setCurrentIndex(4)
 
 
 # create app and window instance

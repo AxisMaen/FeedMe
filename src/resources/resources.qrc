@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/nutritionIcon.ico</file>
     <file>icons/fridgeIcon.ico</file>
     <file>icons/listIcon.ico</file>
     <file>icons/recipesIcon.ico</file>
