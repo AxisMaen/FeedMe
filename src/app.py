@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import QtWidgets
 from pages.MainWindow_ui import Ui_FeedMe
+from models.searchListModel import SearchListModel
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -14,6 +15,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.sidebarFridgeButton.clicked.connect(self.sidebarFridgeButtonClicked)
         self.sidebarRecipesButton.clicked.connect(self.sidebarRecipesButtonClicked)
         self.sidebarNutritionButton.clicked.connect(self.sidebarNutritionButtonClicked)
+
+        ### set up search bar events ###
+        self.searchLineEdit.returnPressed.connect(self.searchFoodItem)
+
+        ### link views to models ###
+        self.searchListModel = SearchListModel()
+        self.searchListView.setModel(self.searchListModel)
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
@@ -34,6 +42,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     # switch to recipes page when sidebar button is clicked
     def sidebarNutritionButtonClicked(self):
         self.mainWindowStack.setCurrentIndex(4)
+
+    # pass search text to model
+    def searchFoodItem(self):
+        self.searchListModel.search(self.searchLineEdit.text())
 
 
 # create app and window instance
