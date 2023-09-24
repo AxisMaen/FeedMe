@@ -5,3 +5,4 @@ src/dist/
 .vscode/settings.json
 .pylintrc
 FeedMe.code-workspace
+src/tests/.coverage

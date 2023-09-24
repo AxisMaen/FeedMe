@@ -34,10 +34,6 @@ class ApiClient:
             # return data if no errors
             return responseJson
         # error handling
-        except requests.exceptions.Timeout:
-            return {
-                "error": "Timeout error: Please check internet connection or try again later"
-            }
         except requests.exceptions.HTTPError as err:
             if err.response.status_code == 401:
                 return {
@@ -45,5 +41,5 @@ class ApiClient:
                 }
             else:
                 return {"error": "Unspecified HTTP error: Please try again later"}
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as err:
             return {"error": "Unspecified error: Please try again later"}
