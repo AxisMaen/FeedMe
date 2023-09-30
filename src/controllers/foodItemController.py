@@ -1,4 +1,6 @@
 from clients.foodItemApiClient import FoodItemApiClient
+from PyQt5.QtCore import Qt, QVariant
+from PyQt5.QtGui import QPixmap, QStandardItem
 
 
 class FoodItemController:
@@ -9,7 +11,7 @@ class FoodItemController:
     def __init__(self):
         self.client = FoodItemApiClient()
 
-    def getFoodItems(self, searchTerm: str):
+    def getFoodData(self, searchTerm: str):
         # use the api client to get a response from the api
         # keep in mind the api could return an error dict
         # map the data to some form that will be used by the model (figure out what the model will use first)
@@ -18,9 +20,32 @@ class FoodItemController:
 
         # TODO: handle errors
 
-        # as a test, return a list of the food item names
-        names = []
-        for foodItem in data["results"]:
-            names.append(foodItem["name"])
+        # if no results, display a message
+        if not data["results"]:
+            data["results"] = [{"name": "No results found"}]
 
-        return names
+        # get required data
+        foodData = []
+        for foodItem in data["results"]:
+            foodName = foodItem["name"]
+
+            foodPixmap = self.getFoodItemImage(foodItem["image"])
+
+            foodData.append([foodPixmap, foodName])
+
+        return foodData
+
+    # return a QPixmap of the image
+    def getFoodItemImage(self, imageName):
+        imageData = self.client.getFoodItemImage(imageName)
+
+        pixmap = QPixmap(300, 300)
+
+        if not imageData:
+            # create a blank pixmap
+            pixmap.fill(Qt.gray)
+            return pixmap
+
+        # create pixmap based on data
+        pixmap.loadFromData(imageData)
+        return pixmap

@@ -1,7 +1,8 @@
 import sys
 from PyQt5 import QtWidgets
 from pages.MainWindow_ui import Ui_FeedMe
-from models.searchListModel import SearchListModel
+from models.searchListModel import SearchTableModel
+from delegates.searchTableDelegate import SearchTableDelegate
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -20,8 +21,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.searchLineEdit.returnPressed.connect(self.searchFoodItem)
 
         ### link views to models ###
-        self.searchListModel = SearchListModel()
-        self.searchListView.setModel(self.searchListModel)
+        self.searchListModel = SearchTableModel()
+        self.searchTableView.setModel(self.searchListModel)
+
+        # set image height for lists
+        self.searchTableView.verticalHeader().setDefaultSectionSize(100)
+
+        self.searchTableImageDelegate = SearchTableDelegate(self.searchTableView)
+        self.searchTableView.setItemDelegateForColumn(0, self.searchTableImageDelegate)
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):

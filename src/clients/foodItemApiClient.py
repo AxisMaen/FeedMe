@@ -10,6 +10,11 @@ class FoodItemApiClient(ApiClient):
     def getFoodItems(self, searchTerm: str):
         endpoint = self.endpoints["ingredients"]
 
-        params = {"query": searchTerm, "number": 10}
+        params = {"query": searchTerm, "number": 5}
 
         return self.sendRequest(endpoint, params)
+
+    def getFoodItemImage(self, imageName):
+        return self.sendImageRequest(
+            "https://spoonacular.com/cdn/ingredients_", imageName
+        )
