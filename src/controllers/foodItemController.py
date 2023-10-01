@@ -1,6 +1,6 @@
 from clients.foodItemApiClient import FoodItemApiClient
-from PyQt5.QtCore import Qt, QVariant
-from PyQt5.QtGui import QPixmap, QStandardItem
+from PyQt5.QtGui import QPixmap
+import string
 
 
 class FoodItemController:
@@ -14,26 +14,32 @@ class FoodItemController:
     def getFoodData(self, searchTerm: str):
         # use the api client to get a response from the api
         # keep in mind the api could return an error dict
-        # map the data to some form that will be used by the model (figure out what the model will use first)
+        # map the data into an array of dicts to be used by the model
 
-        data = self.client.getFoodItems(searchTerm)
+        try:
+            data = self.client.getFoodItems(searchTerm)
 
-        # TODO: handle errors
+            # if an error occured, return it to be displayed
+            if "error" in data.keys():
+                return [data]
 
-        # if no results, display a message
-        if not data["results"]:
-            data["results"] = [{"name": "No results found"}]
+            # if not results are found, display a messsage
+            if not data["results"]:
+                return [{"error": "No results found"}]
 
-        # get required data
-        foodData = []
-        for foodItem in data["results"]:
-            foodName = foodItem["name"]
+            # get required data in array of dicts
+            foodData = []
+            for item in data["results"]:
+                foodItem = {}  # dict that holds food item data
 
-            foodPixmap = self.getFoodItemImage(foodItem["image"])
+                foodItem["name"] = string.capwords(item["name"])
+                foodItem["pixmap"] = self.getFoodItemImage(item["image"])
 
-            foodData.append([foodPixmap, foodName])
+                foodData.append(foodItem)
 
-        return foodData
+            return foodData
+        except:
+            return [{"error": "Error retrieving data"}]
 
     # return a QPixmap of the image
     def getFoodItemImage(self, imageName):
@@ -41,10 +47,9 @@ class FoodItemController:
 
         pixmap = QPixmap(300, 300)
 
+        # if no image, return nothing
         if not imageData:
-            # create a blank pixmap
-            pixmap.fill(Qt.gray)
-            return pixmap
+            return None
 
         # create pixmap based on data
         pixmap.loadFromData(imageData)

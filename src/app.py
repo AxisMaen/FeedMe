@@ -1,7 +1,8 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QFont
 from pages.MainWindow_ui import Ui_FeedMe
-from models.searchListModel import SearchTableModel
+from models.searchTableModel import SearchTableModel
 from delegates.searchTableDelegate import SearchTableDelegate
 
 
@@ -24,11 +25,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.searchListModel = SearchTableModel()
         self.searchTableView.setModel(self.searchListModel)
 
-        # set image height for lists
+        ### set image height for views ###
         self.searchTableView.verticalHeader().setDefaultSectionSize(100)
 
+        ### set view delegates ###
         self.searchTableImageDelegate = SearchTableDelegate(self.searchTableView)
         self.searchTableView.setItemDelegateForColumn(0, self.searchTableImageDelegate)
+
+        ### set view fonts ###
+        self.searchTableView.setFont(QFont("Source Sans 3", 12))
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):

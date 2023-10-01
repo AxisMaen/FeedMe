@@ -1,5 +1,4 @@
 from PyQt5.QtCore import Qt, QAbstractTableModel
-from PyQt5.QtWidgets import QLabel
 from controllers.foodItemController import FoodItemController
 
 
@@ -12,15 +11,11 @@ class SearchTableModel(QAbstractTableModel):
     def data(self, index, role):
         foodItem = self.foodData[index.row()]
 
-        if index.column() == 0:
-            if role == Qt.DecorationRole:
-                label = QLabel()
-                pixmap = foodItem[index.column()]
-                label.setPixmap(pixmap)
-                return label
         if index.column() == 1:
             if role == Qt.DisplayRole:
-                return foodItem[index.column()]
+                if "error" in foodItem.keys():
+                    return foodItem["error"]
+                return foodItem["name"]
 
     def rowCount(self, index):
         return len(self.foodData)
