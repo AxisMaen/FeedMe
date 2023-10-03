@@ -45,11 +45,11 @@ class FoodItemController:
     def getFoodItemImage(self, imageName):
         imageData = self.client.getFoodItemImage(imageName)
 
-        pixmap = QPixmap(300, 300)
-
         # if no image, return nothing
         if not imageData:
             return None
+
+        pixmap = QPixmap(300, 300)
 
         # create pixmap based on data
         pixmap.loadFromData(imageData)

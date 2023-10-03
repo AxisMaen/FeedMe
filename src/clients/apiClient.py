@@ -45,7 +45,7 @@ class ApiClient:
         except requests.exceptions.RequestException as err:
             return {"error": "Unspecified error: Please try again later"}
 
-    def sendImageRequest(self, baseUrl: str, imageName: str):
+    def sendImageRequest(self, imageUrl: str):
         """
         Send a request to the given baseUrl to get the imageName
         Image requests use different baseUrls depending on the type of image
@@ -53,10 +53,8 @@ class ApiClient:
         @param imageName - the name of the image (file extension included)
         @return - raw image data
         """
-        url = baseUrl + "100x100" + "/" + imageName
-
         try:
-            request = Request(url)
+            request = Request(imageUrl)
             request.add_header("x-api-key", API_KEY)
             request.add_header(
                 "User-Agent",

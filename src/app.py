@@ -3,7 +3,9 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QFont
 from pages.MainWindow_ui import Ui_FeedMe
 from models.searchTableModel import SearchTableModel
+from models.recipeTableModel import RecipeTableModel
 from delegates.searchTableDelegate import SearchTableDelegate
+from delegates.recipeTableDelegate import RecipeTableDelegate
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -19,21 +21,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.sidebarNutritionButton.clicked.connect(self.sidebarNutritionButtonClicked)
 
         ### set up search bar events ###
-        self.searchLineEdit.returnPressed.connect(self.searchFoodItem)
+        self.searchLineEdit.returnPressed.connect(self.searchFoodItems)
+        self.recipesLineEdit.returnPressed.connect(self.searchRecipes)
 
         ### link views to models ###
-        self.searchListModel = SearchTableModel()
-        self.searchTableView.setModel(self.searchListModel)
+        self.searchTableModel = SearchTableModel()
+        self.searchTableView.setModel(self.searchTableModel)
+
+        self.recipeTableModel = RecipeTableModel()
+        self.recipesTableView.setModel(self.recipeTableModel)
 
         ### set image height for views ###
         self.searchTableView.verticalHeader().setDefaultSectionSize(100)
+        self.recipesTableView.verticalHeader().setDefaultSectionSize(100)
 
         ### set view delegates ###
         self.searchTableImageDelegate = SearchTableDelegate(self.searchTableView)
         self.searchTableView.setItemDelegateForColumn(0, self.searchTableImageDelegate)
 
+        self.recipeTableImageDelegate = RecipeTableDelegate(self.recipesTableView)
+        self.recipesTableView.setItemDelegateForColumn(0, self.recipeTableImageDelegate)
+
         ### set view fonts ###
         self.searchTableView.setFont(QFont("Source Sans 3", 12))
+        self.recipesTableView.setFont(QFont("Source Sans 3", 12))
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
@@ -56,8 +67,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.mainWindowStack.setCurrentIndex(4)
 
     # pass search text to model
-    def searchFoodItem(self):
-        self.searchListModel.search(self.searchLineEdit.text())
+    def searchFoodItems(self):
+        self.searchTableModel.search(self.searchLineEdit.text())
+
+    # pass search text to model
+    def searchRecipes(self):
+        self.recipeTableModel.search(self.recipesLineEdit.text())
 
 
 # create app and window instance

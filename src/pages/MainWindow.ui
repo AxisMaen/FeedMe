@@ -726,7 +726,7 @@ QPushButton:pressed {
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
-               <widget class="QListView" name="recipesListView">
+               <widget class="QTableView" name="recipesTableView">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                   <horstretch>0</horstretch>
@@ -739,9 +739,30 @@ QPushButton:pressed {
                   <height>431</height>
                  </size>
                 </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>500</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius: 20px;</string>
                 </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <property name="cornerButtonEnabled">
+                 <bool>false</bool>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
                </widget>
               </item>
              </layout>
