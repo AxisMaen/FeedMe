@@ -3,8 +3,9 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QFont
 from pages.MainWindow_ui import Ui_FeedMe
 from models.searchTableModel import SearchTableModel
+from models.shoppingTableModel import ShoppingTableModel
 from models.recipeTableModel import RecipeTableModel
-from delegates.searchTableDelegate import SearchTableDelegate
+from delegates.foodItemTableDelegate import FoodItemTableDelegate
 from delegates.recipeTableDelegate import RecipeTableDelegate
 
 
@@ -24,26 +25,45 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.searchLineEdit.returnPressed.connect(self.searchFoodItems)
         self.recipesLineEdit.returnPressed.connect(self.searchRecipes)
 
+        ### set up data movement button events ###
+        self.searchAddToShoppingListButton.clicked.connect(self.addToShoppingList)
+
         ### link views to models ###
+        # food search page
         self.searchTableModel = SearchTableModel()
         self.searchTableView.setModel(self.searchTableModel)
 
+        # shopping list page
+        self.shoppingTableModel = ShoppingTableModel()
+        self.shoppingTableView.setModel(self.shoppingTableModel)
+
+        # recipe page
         self.recipeTableModel = RecipeTableModel()
         self.recipesTableView.setModel(self.recipeTableModel)
 
         ### set image height for views ###
         self.searchTableView.verticalHeader().setDefaultSectionSize(100)
+        self.shoppingTableView.verticalHeader().setDefaultSectionSize(100)
         self.recipesTableView.verticalHeader().setDefaultSectionSize(100)
 
         ### set view delegates ###
-        self.searchTableImageDelegate = SearchTableDelegate(self.searchTableView)
+        # food search page
+        self.searchTableImageDelegate = FoodItemTableDelegate(self.searchTableView)
         self.searchTableView.setItemDelegateForColumn(0, self.searchTableImageDelegate)
 
+        # shopping list page
+        self.shoppingTableImageDelegate = FoodItemTableDelegate(self.shoppingTableView)
+        self.shoppingTableView.setItemDelegateForColumn(
+            0, self.shoppingTableImageDelegate
+        )
+
+        # recipe page
         self.recipeTableImageDelegate = RecipeTableDelegate(self.recipesTableView)
         self.recipesTableView.setItemDelegateForColumn(0, self.recipeTableImageDelegate)
 
         ### set view fonts ###
         self.searchTableView.setFont(QFont("Source Sans 3", 12))
+        self.shoppingTableView.setFont(QFont("Source Sans 3", 12))
         self.recipesTableView.setFont(QFont("Source Sans 3", 12))
 
     # switch to search food page when sidebar button is clicked
@@ -73,6 +93,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     # pass search text to model
     def searchRecipes(self):
         self.recipeTableModel.search(self.recipesLineEdit.text())
+
+    # get selected food item data and pass to shopping list model
+    def addToShoppingList(self):
+        selectedModelIndexes = self.searchTableView.selectionModel().selectedRows()
+
+        # convert QModelIndex(s) to integer indexes
+        selectedIndexes = []
+        for i in selectedModelIndexes:
+            selectedIndexes.append(i.row())
+
+        selectedData = self.searchTableModel.getSelectedData(selectedIndexes)
+
+        self.shoppingTableModel.addFoodItems(selectedData)
 
 
 # create app and window instance

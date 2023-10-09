@@ -29,3 +29,14 @@ class SearchTableModel(QAbstractTableModel):
 
         # update the view
         self.layoutChanged.emit()
+
+    # get the selected food item data
+    def getSelectedData(self, selectedIndexes: list):
+        selectedData = []
+        for i in selectedIndexes:
+            if "error" in self.foodData[i].keys():
+                # do not add errors to shopping list
+                return
+            selectedData.append(self.foodData[i])
+
+        return selectedData

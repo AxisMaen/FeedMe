@@ -378,6 +378,9 @@ QPushButton:pressed {
                 <property name="selectionMode">
                  <enum>QAbstractItemView::ExtendedSelection</enum>
                 </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
                 <property name="showGrid">
                  <bool>false</bool>
                 </property>
@@ -524,7 +527,7 @@ List</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
-               <widget class="QListView" name="shoppingListView">
+               <widget class="QTableView" name="shoppingTableView">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                   <horstretch>0</horstretch>
@@ -540,12 +543,21 @@ List</string>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius: 20px;</string>
                 </property>
-                <property name="isWrapping" stdset="0">
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="showGrid">
                  <bool>false</bool>
                 </property>
-                <property name="viewMode">
-                 <enum>QListView::ListMode</enum>
-                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
                </widget>
               </item>
              </layout>

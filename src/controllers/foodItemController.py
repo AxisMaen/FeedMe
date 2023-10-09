@@ -33,6 +33,7 @@ class FoodItemController:
                 foodItem = {}  # dict that holds food item data
 
                 foodItem["name"] = string.capwords(item["name"])
+                foodItem["id"] = item["id"]
                 foodItem["pixmap"] = self.getFoodItemImage(item["image"])
 
                 foodData.append(foodItem)
