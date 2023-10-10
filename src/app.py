@@ -27,6 +27,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         ### set up data movement button events ###
         self.searchAddToShoppingListButton.clicked.connect(self.addToShoppingList)
+        self.shoppingRemoveButton.clicked.connect(self.removeFromShoppingList)
 
         ### link views to models ###
         # food search page
@@ -106,6 +107,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         selectedData = self.searchTableModel.getSelectedData(selectedIndexes)
 
         self.shoppingTableModel.addFoodItems(selectedData)
+
+    # get selected indexes and remove the cooresponding food item data
+    def removeFromShoppingList(self):
+        selectedModelIndexes = self.shoppingTableView.selectionModel().selectedRows()
+
+        # convert QModelIndex(s) to integer indexes
+        selectedIndexes = []
+        for i in selectedModelIndexes:
+            selectedIndexes.append(i.row())
+
+        self.shoppingTableModel.removeFoodItems(selectedIndexes)
 
 
 # create app and window instance

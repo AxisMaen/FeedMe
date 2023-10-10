@@ -40,3 +40,19 @@ class ShoppingTableModel(QAbstractTableModel):
 
         # update the view
         self.layoutChanged.emit()
+
+    def removeFoodItems(self, indexes: list):
+        """
+        Remove the food item data at the given indexes
+        @param indexes - a list of integers corresponding to indexes in foodData to be removed
+        @return - None
+        """
+
+        # work backwards so removing does not affect indexes
+        indexes = sorted(indexes, reverse=True)
+
+        for i in indexes:
+            del self.foodData[i]
+
+        # update the view
+        self.layoutChanged.emit()
