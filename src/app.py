@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QFont
 from pages.MainWindow_ui import Ui_FeedMe
 from models.searchTableModel import SearchTableModel
-from models.shoppingTableModel import ShoppingTableModel
+from models.foodItemTableModel import FoodItemTableModel
 from models.recipeTableModel import RecipeTableModel
 from delegates.foodItemTableDelegate import FoodItemTableDelegate
 from delegates.recipeTableDelegate import RecipeTableDelegate
@@ -28,6 +28,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         ### set up data movement button events ###
         self.searchAddToShoppingListButton.clicked.connect(self.addToShoppingList)
         self.shoppingRemoveButton.clicked.connect(self.removeFromShoppingList)
+        self.shoppingMoveToFridgeButton.clicked.connect(self.moveToFridgeList)
 
         ### link views to models ###
         # food search page
@@ -35,8 +36,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.searchTableView.setModel(self.searchTableModel)
 
         # shopping list page
-        self.shoppingTableModel = ShoppingTableModel()
+        self.shoppingTableModel = FoodItemTableModel()
         self.shoppingTableView.setModel(self.shoppingTableModel)
+
+        # fridge list page
+        self.fridgeTableModel = FoodItemTableModel()
+        self.fridgeTableView.setModel(self.fridgeTableModel)
 
         # recipe page
         self.recipeTableModel = RecipeTableModel()
@@ -45,6 +50,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         ### set image height for views ###
         self.searchTableView.verticalHeader().setDefaultSectionSize(100)
         self.shoppingTableView.verticalHeader().setDefaultSectionSize(100)
+        self.fridgeTableView.verticalHeader().setDefaultSectionSize(100)
         self.recipesTableView.verticalHeader().setDefaultSectionSize(100)
 
         ### set view delegates ###
@@ -58,6 +64,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
             0, self.shoppingTableImageDelegate
         )
 
+        # fridge page
+        self.fridgeTableImageDelegate = FoodItemTableDelegate(self.fridgeTableView)
+        self.fridgeTableView.setItemDelegateForColumn(0, self.fridgeTableImageDelegate)
+
         # recipe page
         self.recipeTableImageDelegate = RecipeTableDelegate(self.recipesTableView)
         self.recipesTableView.setItemDelegateForColumn(0, self.recipeTableImageDelegate)
@@ -65,6 +75,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         ### set view fonts ###
         self.searchTableView.setFont(QFont("Source Sans 3", 12))
         self.shoppingTableView.setFont(QFont("Source Sans 3", 12))
+        self.fridgeTableView.setFont(QFont("Source Sans 3", 12))
         self.recipesTableView.setFont(QFont("Source Sans 3", 12))
 
     # switch to search food page when sidebar button is clicked
@@ -118,6 +129,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
             selectedIndexes.append(i.row())
 
         self.shoppingTableModel.removeFoodItems(selectedIndexes)
+
+    def moveToFridgeList(self):
+        selectedModelIndexes = self.shoppingTableView.selectionModel().selectedRows()
+
+        # convert QModelIndex(s) to integer indexes
+        selectedIndexes = []
+        for i in selectedModelIndexes:
+            selectedIndexes.append(i.row())
+
+        selectedData = self.shoppingTableModel.getSelectedData(selectedIndexes)
+
+        # add data to fridge list
+        self.fridgeTableModel.addFoodItems(selectedData)
+
+        # remove data from shopping list
+        self.removeFromShoppingList()
 
 
 # create app and window instance

@@ -35,7 +35,7 @@ class SearchTableModel(QAbstractTableModel):
         selectedData = []
         for i in selectedIndexes:
             if "error" in self.foodData[i].keys():
-                # do not add errors to shopping list
+                # do not select errors
                 return
             selectedData.append(self.foodData[i])
 

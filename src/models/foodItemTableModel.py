@@ -1,9 +1,9 @@
 from PyQt5.QtCore import Qt, QAbstractTableModel
 
 
-class ShoppingTableModel(QAbstractTableModel):
+class FoodItemTableModel(QAbstractTableModel):
     def __init__(self):
-        super(ShoppingTableModel, self).__init__()
+        super(FoodItemTableModel, self).__init__()
         self.foodData = []
 
     def data(self, index, role):
@@ -23,17 +23,17 @@ class ShoppingTableModel(QAbstractTableModel):
 
     def addFoodItems(self, newFoodItems: list):
         """
-        Add food item data to the shopping list to be displayed, duplicate items are not added
+        Add food item data to the list to be displayed, duplicate items are not added
         @param foodItems - list of dicts where each dict is a food item to be added
         @return - None
         """
 
-        # get list of ids already in shopping list
+        # get list of ids already in list
         currentIds = []
         for item in self.foodData:
             currentIds.append(item["id"])
 
-        # add new items to shopping list if they are not duplicates
+        # add new items to list if they are not duplicates
         for item in newFoodItems:
             if item["id"] not in currentIds:
                 self.foodData.append(item)
@@ -56,3 +56,14 @@ class ShoppingTableModel(QAbstractTableModel):
 
         # update the view
         self.layoutChanged.emit()
+
+    # get the selected food item data
+    def getSelectedData(self, selectedIndexes: list):
+        selectedData = []
+        for i in selectedIndexes:
+            if "error" in self.foodData[i].keys():
+                # do not select errors
+                return
+            selectedData.append(self.foodData[i])
+
+        return selectedData

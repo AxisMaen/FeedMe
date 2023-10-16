@@ -477,7 +477,7 @@ List</string>
             <height>571</height>
            </size>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
             <widget class="QLabel" name="shoppingNameLabel">
              <property name="enabled">
@@ -567,50 +567,78 @@ List</string>
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="shoppingRemoveButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>111</width>
-                  <height>71</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>111</width>
-                  <height>71</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Source Sans 3</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton {
+               <widget class="QWidget" name="widget" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QPushButton" name="shoppingMoveToFridgeButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>111</width>
+                     <height>71</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>111</width>
+                     <height>71</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Source Sans 3</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
 color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;
 }
 
 QPushButton:pressed {
  background-color: #A6A6A6;
 }</string>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
+                   </property>
+                   <property name="text">
+                    <string>Move to
+ My Fridge</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="shoppingRemoveButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>111</width>
+                     <height>71</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>111</width>
+                     <height>71</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Source Sans 3</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;
+}
+
+QPushButton:pressed {
+ background-color: #A6A6A6;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Remove</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -643,7 +671,7 @@ QPushButton:pressed {
             <height>571</height>
            </size>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
             <widget class="QLabel" name="fridgeNameLabel">
              <property name="enabled">
@@ -687,13 +715,13 @@ QPushButton:pressed {
              </property>
              <property name="minimumSize">
               <size>
-               <width>500</width>
-               <height>449</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
               <item>
-               <widget class="QListView" name="fridgeListView">
+               <widget class="QTableView" name="fridgeTableView">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                   <horstretch>0</horstretch>
@@ -702,18 +730,80 @@ QPushButton:pressed {
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>743</width>
+                  <width>600</width>
                   <height>431</height>
                  </size>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius: 20px;</string>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>500</height>
+                 </size>
                 </property>
-                <property name="isWrapping" stdset="0">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgba(255, 255, 255, 255); border: 1px hidden;</string>
+                </property>
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <property name="showGrid">
                  <bool>false</bool>
                 </property>
-                <property name="viewMode">
-                 <enum>QListView::ListMode</enum>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="fridgeRemoveButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>111</width>
+                  <height>71</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>111</width>
+                  <height>71</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Source Sans 3</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;
+}
+
+QPushButton:pressed {
+ background-color: #A6A6A6;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Remove</string>
                 </property>
                </widget>
               </item>
