@@ -1,7 +1,7 @@
 from clients.foodItemApiClient import FoodItemApiClient
 from controllers.foodItemController import FoodItemController
 from models.searchTableModel import SearchTableModel
-from models.shoppingTableModel import ShoppingTableModel
+from models.foodItemTableModel import FoodItemTableModel
 
 import sys
 from PyQt5.QtWidgets import QApplication
@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QApplication
 
 # Test ID: UT-5
 def test_add_to_shopping_list(requests_mock):
-    model = ShoppingTableModel()
+    model = FoodItemTableModel()
 
     mockFoodItems = [
         {"id": 1, "name": "banana", "pixmap": None},
@@ -24,7 +24,7 @@ def test_add_to_shopping_list(requests_mock):
 
 # Test ID: UT-6
 def test_add_duplicate_to_shopping_list(requests_mock):
-    model = ShoppingTableModel()
+    model = FoodItemTableModel()
 
     mockFoodItems = [
         {"id": 1, "name": "banana", "pixmap": None},
@@ -47,7 +47,7 @@ def test_add_search_items_to_shopping_list(requests_mock):
     qApp = QApplication(sys.argv)
 
     searchModel = SearchTableModel()
-    shoppingModel = ShoppingTableModel()
+    shoppingModel = FoodItemTableModel()
 
     controller = FoodItemController()
 
@@ -89,7 +89,7 @@ def test_add_search_items_to_shopping_list(requests_mock):
 
 # Test ID: UT-7
 def test_remove_from_shopping_list(requests_mock):
-    model = ShoppingTableModel()
+    model = FoodItemTableModel()
 
     mockFoodItems = [
         {"id": 1, "name": "banana", "pixmap": None},
@@ -106,7 +106,7 @@ def test_remove_from_shopping_list(requests_mock):
 
 # Test ID: UT-8
 def test_remove_nothing_from_shopping_list(requests_mock):
-    model = ShoppingTableModel()
+    model = FoodItemTableModel()
 
     mockFoodItems = [
         {"id": 1, "name": "banana", "pixmap": None},
@@ -127,7 +127,7 @@ def test_remove_search_items_from_shopping_list(requests_mock):
     qApp = QApplication(sys.argv)
 
     searchModel = SearchTableModel()
-    shoppingModel = ShoppingTableModel()
+    shoppingModel = FoodItemTableModel()
 
     controller = FoodItemController()
 
