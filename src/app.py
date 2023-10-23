@@ -30,6 +30,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.shoppingRemoveButton.clicked.connect(self.removeFromShoppingList)
         self.fridgeRemoveButton.clicked.connect(self.removeFromFridgeList)
         self.shoppingMoveToFridgeButton.clicked.connect(self.moveToFridgeList)
+        self.recipesAddToNutritionListButton.clicked.connect(self.addToNutritionList)
 
         ### link views to models ###
         # food search page
@@ -157,6 +158,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         # remove data from shopping list
         self.removeFromShoppingList()
+
+    def addToNutritionList(self):
+        pass
 
 
 # create app and window instance
