@@ -4,9 +4,10 @@ from PyQt5.QtGui import QFont
 from pages.MainWindow_ui import Ui_FeedMe
 from models.searchTableModel import SearchTableModel
 from models.foodItemTableModel import FoodItemTableModel
-from models.recipeTableModel import RecipeTableModel
+from models.recipesTableModel import RecipesTableModel
+from models.nutritionTableModel import NutritionTableModel
 from delegates.foodItemTableDelegate import FoodItemTableDelegate
-from delegates.recipeTableDelegate import RecipeTableDelegate
+from delegates.recipesTableDelegate import RecipesTableDelegate
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -45,9 +46,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.fridgeTableModel = FoodItemTableModel()
         self.fridgeTableView.setModel(self.fridgeTableModel)
 
-        # recipe page
-        self.recipeTableModel = RecipeTableModel()
-        self.recipesTableView.setModel(self.recipeTableModel)
+        # recipes page
+        self.recipesTableModel = RecipesTableModel()
+        self.recipesTableView.setModel(self.recipesTableModel)
+
+        # nutrition page
+        self.nutritionTableModel = NutritionTableModel()
+        self.nutritionTableView.setModel(self.nutritionTableModel)
 
         ### set image height for views ###
         self.searchTableView.verticalHeader().setDefaultSectionSize(100)
@@ -70,15 +75,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.fridgeTableImageDelegate = FoodItemTableDelegate(self.fridgeTableView)
         self.fridgeTableView.setItemDelegateForColumn(0, self.fridgeTableImageDelegate)
 
-        # recipe page
-        self.recipeTableImageDelegate = RecipeTableDelegate(self.recipesTableView)
-        self.recipesTableView.setItemDelegateForColumn(0, self.recipeTableImageDelegate)
+        # recipes page
+        self.recipesTableImageDelegate = RecipesTableDelegate(self.recipesTableView)
+        self.recipesTableView.setItemDelegateForColumn(
+            0, self.recipesTableImageDelegate
+        )
 
         ### set view fonts ###
         self.searchTableView.setFont(QFont("Source Sans 3", 12))
         self.shoppingTableView.setFont(QFont("Source Sans 3", 12))
         self.fridgeTableView.setFont(QFont("Source Sans 3", 12))
         self.recipesTableView.setFont(QFont("Source Sans 3", 12))
+        self.nutritionTableView.setFont(QFont("Source Sans 3", 12))
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
@@ -106,7 +114,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
     # pass search text to model
     def searchRecipes(self):
-        self.recipeTableModel.search(self.recipesLineEdit.text())
+        self.recipesTableModel.search(self.recipesLineEdit.text())
 
     # get selected food item data and pass to shopping list model
     def addToShoppingList(self):
@@ -160,7 +168,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.removeFromShoppingList()
 
     def addToNutritionList(self):
-        pass
+        selectedModelIndexes = self.recipesTableView.selectionModel().selectedRows()
+
+        # convert QModelIndex(s) to integer indexes
+        selectedIndexes = []
+        for i in selectedModelIndexes:
+            selectedIndexes.append(i.row())
+
+        selectedData = self.recipesTableModel.getSelectedData(selectedIndexes)
+
+        # add data to fridge list
+        self.nutritionTableModel.addRecipes(selectedData)
 
 
 # create app and window instance
