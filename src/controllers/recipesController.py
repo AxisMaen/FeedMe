@@ -1,6 +1,7 @@
 from clients.recipeApiClient import RecipeApiClient
 from PyQt5.QtGui import QPixmap
 import string
+from config.constants import RETRIEVED_NUTRIENTS
 
 
 class RecipesController:
@@ -37,6 +38,14 @@ class RecipesController:
                 recipeItem["pixmap"] = self.getRecipeImage(
                     str(recipe["id"]), recipe["imageType"]
                 )
+
+                for nutrient in recipe["nutrition"]["nutrients"]:
+                    formattedName = nutrient["name"].lower().replace(" ", "")
+
+                    # only get certain nutrients
+                    if formattedName not in RETRIEVED_NUTRIENTS.keys():
+                        continue
+                    recipeItem[formattedName] = nutrient["amount"]
 
                 recipeData.append(recipeItem)
 

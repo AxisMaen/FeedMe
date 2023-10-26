@@ -8,6 +8,7 @@ from models.recipesTableModel import RecipesTableModel
 from models.nutritionTableModel import NutritionTableModel
 from delegates.foodItemTableDelegate import FoodItemTableDelegate
 from delegates.recipesTableDelegate import RecipesTableDelegate
+from functions.aggregateRecipeNutrition import aggregateRecipeNutrition
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -32,6 +33,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.fridgeRemoveButton.clicked.connect(self.removeFromFridgeList)
         self.shoppingMoveToFridgeButton.clicked.connect(self.moveToFridgeList)
         self.recipesAddToNutritionListButton.clicked.connect(self.addToNutritionList)
+
+        # set up nutrition spin box update event
+        self.nutritionSpinBox.valueChanged.connect(self.updateNutritionLabels)
 
         ### link views to models ###
         # food search page
@@ -177,8 +181,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         selectedData = self.recipesTableModel.getSelectedData(selectedIndexes)
 
-        # add data to fridge list
+        # add data to nutrition list
         self.nutritionTableModel.addRecipes(selectedData)
+
+        self.updateNutritionLabels()
+
+    def updateNutritionLabels(self):
+        """
+        Calls the nutrition aggregation algorithm to update the labels
+        """
+        recipes = self.nutritionTableModel.recipeData
+        numOfDays = self.nutritionSpinBox.value()
+
+        # run nutrition algorithm
+        nutritionData = aggregateRecipeNutrition(recipes, numOfDays)
+
+        # set data to labels
+        pass
 
 
 # create app and window instance

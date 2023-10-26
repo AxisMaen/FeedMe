@@ -10,7 +10,7 @@ class RecipeApiClient(ApiClient):
     def getRecipes(self, searchTerm: str):
         endpoint = self.endpoints["recipes"]
 
-        params = {"query": searchTerm, "number": 5}
+        params = {"query": searchTerm, "number": 5, "addRecipeNutrition": "true"}
 
         return self.sendRequest(endpoint, params)
 

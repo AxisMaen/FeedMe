@@ -8,8 +8,6 @@ class NutritionTableModel(QAbstractTableModel):
         super(NutritionTableModel, self).__init__()
         self.recipeData = []
 
-        # self.controller = NutritionController()
-
     def data(self, index, role):
         recipeItem = self.recipeData[index.row()]
 

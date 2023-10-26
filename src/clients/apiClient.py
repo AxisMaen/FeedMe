@@ -1,4 +1,4 @@
-from clients.apiKey import API_KEY
+from config.constants import API_KEY
 import requests
 from urllib.request import Request, urlopen
 
