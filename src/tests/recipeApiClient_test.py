@@ -1,5 +1,5 @@
 from clients.recipeApiClient import RecipeApiClient
-from models.recipeTableModel import RecipeTableModel
+from models.recipesTableModel import RecipesTableModel
 
 
 # Test ID: UT-3
@@ -43,7 +43,7 @@ def test_good_response(requests_mock):
 # Test ID: ST-2
 def test_access_error_system(requests_mock):
     client = RecipeApiClient()
-    model = RecipeTableModel()
+    model = RecipesTableModel()
 
     mockResponse = {"mock": "mock response"}
 
