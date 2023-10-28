@@ -1,6 +1,5 @@
 from PyQt5.QtCore import Qt, QAbstractTableModel
-
-# from controllers.nutritionController import NutritionController
+from config.constants import RETRIEVED_NUTRIENTS
 
 
 class NutritionTableModel(QAbstractTableModel):
@@ -36,3 +35,37 @@ class NutritionTableModel(QAbstractTableModel):
 
         # update the view
         self.layoutChanged.emit()
+
+    def getAggregateRecipeNutrition(self, numOfDays: int) -> dict:
+        """
+        Aggregate recipe data over the given number of days
+        @param recipes - list of dicts where each dict is a recipe to be added (nutrition information included)
+        @param numOfDays - number of days to aggregate over
+        @return - dict where the key is the name of the nutrient and the value is the aggregated value
+        """
+
+        # create a dict with keys for each nutrient, values initialized to 0
+        aggregatedNutrition = dict.fromkeys(RETRIEVED_NUTRIENTS.keys(), 0)
+
+        # pull the nutrition information for each recipe, multiply by numOfDays before adding to aggregated dict
+        for recipe in self.recipeData:
+            for nutrient in RETRIEVED_NUTRIENTS.keys():
+                nutrientTotal = recipe[nutrient] * numOfDays
+                nutrientTotalRecommended = RETRIEVED_NUTRIENTS[nutrient] * numOfDays
+                aggregatedNutrition[nutrient] += nutrientTotal
+
+        return aggregatedNutrition
+
+    def getAggregateRecommendedNutrition(self, numOfDays: int) -> dict:
+        """
+        Aggregate daily nutrition recommendations over the given number of days
+        @param numOfDays - number of days to aggregate over
+        @return - dict where the key is the name of the nutrient and the value is the aggregated recommended value
+        """
+
+        recommendedNutrients = dict.fromkeys(RETRIEVED_NUTRIENTS.keys(), 0)
+
+        for nutrient in RETRIEVED_NUTRIENTS.keys():
+            recommendedNutrients[nutrient] = RETRIEVED_NUTRIENTS[nutrient] * numOfDays
+
+        return recommendedNutrients

@@ -39,6 +39,7 @@ class RecipesController:
                     str(recipe["id"]), recipe["imageType"]
                 )
 
+                # get nutrition information
                 for nutrient in recipe["nutrition"]["nutrients"]:
                     formattedName = nutrient["name"].lower().replace(" ", "")
 

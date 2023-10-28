@@ -8,7 +8,6 @@ from models.recipesTableModel import RecipesTableModel
 from models.nutritionTableModel import NutritionTableModel
 from delegates.foodItemTableDelegate import FoodItemTableDelegate
 from delegates.recipesTableDelegate import RecipesTableDelegate
-from functions.aggregateRecipeNutrition import aggregateRecipeNutrition
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
@@ -194,10 +193,66 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         numOfDays = self.nutritionSpinBox.value()
 
         # run nutrition algorithm
-        nutritionData = aggregateRecipeNutrition(recipes, numOfDays)
+        nutritionData = self.nutritionTableModel.getAggregateRecipeNutrition(numOfDays)
+        recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(
+            numOfDays
+        )
 
         # set data to labels
-        pass
+        self.nutritionCaloriesInfoLabel.setText(
+            format(int(nutritionData["calories"]), ",")
+            + "/"
+            + format(int(recommendedData["calories"]), ",")
+            + " kCal"
+        )
+        self.nutritionTotalFatInfoLabel.setText(
+            format(int(nutritionData["fat"]), ",")
+            + "/"
+            + format(int(recommendedData["fat"]), ",")
+            + " g"
+        )
+        self.nutritionSaturatedFatInfoLabel.setText(
+            format(int(nutritionData["saturatedfat"]), ",")
+            + "/"
+            + format(int(recommendedData["saturatedfat"]), ",")
+            + " g"
+        )
+        self.nutritionCholesterolInfoLabel.setText(
+            format(int(nutritionData["cholesterol"]), ",")
+            + "/"
+            + format(int(recommendedData["cholesterol"]), ",")
+            + " mg"
+        )
+        self.nutritionSodiumInfoLabel.setText(
+            format(int(nutritionData["sodium"]), ",")
+            + "/"
+            + format(int(recommendedData["sodium"]), ",")
+            + " mg"
+        )
+        self.nutritionTotalCarbsInfoLabel.setText(
+            format(int(nutritionData["carbohydrates"]), ",")
+            + "/"
+            + format(int(recommendedData["carbohydrates"]), ",")
+            + " g"
+        )
+        self.nutritionFibersInfoLabel.setText(
+            format(int(nutritionData["fiber"]), ",")
+            + "/"
+            + format(int(recommendedData["fiber"]), ",")
+            + " g"
+        )
+        self.nutritionAddedSugarsInfoLabel.setText(
+            format(int(nutritionData["sugar"]), ",")
+            + "/"
+            + format(int(recommendedData["sugar"]), ",")
+            + " g"
+        )
+        self.nutritionProteinInfoLabel.setText(
+            format(int(nutritionData["protein"]), ",")
+            + "/"
+            + format(int(recommendedData["protein"]), ",")
+            + " g"
+        )
 
 
 # create app and window instance
