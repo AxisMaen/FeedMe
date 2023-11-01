@@ -1,8 +1,6 @@
-from clients.foodItemApiClient import FoodItemApiClient
 from controllers.foodItemController import FoodItemController
 from models.searchTableModel import SearchTableModel
 from models.foodItemTableModel import FoodItemTableModel
-
 import sys
 from PyQt5.QtWidgets import QApplication
 
@@ -84,7 +82,7 @@ def test_add_search_items_to_shopping_list(requests_mock):
         item.pop("pixmap")
 
     # ensure that food items were added to the model
-    assert shoppingModel.foodData == mockModelData
+    assert shoppingModelData == mockModelData
 
 
 # Test ID: UT-7

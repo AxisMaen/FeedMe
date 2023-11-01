@@ -25,7 +25,7 @@ class NutritionTableModel(QAbstractTableModel):
     def addRecipes(self, recipes):
         """
         Add recipe data to the list to be displayed, duplicate items are added
-        @param recipes - list of dicts where each dict is a recipe to be added (nutrition information not included)
+        @param recipes - list of dicts where each dict is a recipe to be added (nutrition information included)
         @return - None
         """
 
