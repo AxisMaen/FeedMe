@@ -54,7 +54,7 @@ def test_get_nutrition_info(requests_mock):
     )
 
     # get mock food data
-    recipesModel.search("test")
+    recipesModel.search("test", [])
 
     # remove pixmaps from the comparison for simplicity
     recipeModelData = recipesModel.recipeData

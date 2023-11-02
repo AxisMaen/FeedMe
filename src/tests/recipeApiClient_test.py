@@ -15,7 +15,7 @@ def test_access_error(requests_mock):
         json=mockResponse,
     )
 
-    response = client.getRecipes("test")
+    response = client.getRecipes("test", [])
 
     # ensure the error is handled
     assert "error" in response.keys()
@@ -34,7 +34,7 @@ def test_good_response(requests_mock):
         json=mockResponse,
     )
 
-    response = client.getRecipes("test")
+    response = client.getRecipes("test", [])
 
     # ensure the mock response is returned
     assert response == mockResponse
@@ -59,7 +59,7 @@ def test_access_error_system(requests_mock):
         json=mockResponse,
     )
 
-    model.search("test")
+    model.search("test", [])
 
     # error should be present in foodData
     actualDisplay = model.recipeData[0]
