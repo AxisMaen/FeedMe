@@ -24,8 +24,8 @@ class RecipesTableModel(QAbstractTableModel):
         return 2
 
     # get new data and emit signal to update view
-    def search(self, searchTerm):
-        self.recipeData = self.controller.getRecipeData(searchTerm)
+    def search(self, searchTerm: str, ingredients: list):
+        self.recipeData = self.controller.getRecipeData(searchTerm, ingredients)
 
         # update the view
         self.layoutChanged.emit()

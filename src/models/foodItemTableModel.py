@@ -67,3 +67,14 @@ class FoodItemTableModel(QAbstractTableModel):
             selectedData.append(self.foodData[i])
 
         return selectedData
+
+    def getIngredients(self):
+        """
+        Get the names of all ingredients in the model
+        @return - list of strings where each item is the name of an ingredient
+        """
+        names = []
+        for item in self.foodData:
+            names.append(item["name"])
+
+        return names

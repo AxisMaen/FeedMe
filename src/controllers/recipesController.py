@@ -12,13 +12,13 @@ class RecipesController:
     def __init__(self):
         self.client = RecipeApiClient()
 
-    def getRecipeData(self, searchTerm: str):
+    def getRecipeData(self, searchTerm: str, ingredients: list):
         # use the api client to get a response from the api
         # keep in mind the api could return an error dict
         # map the data into an array of dicts to be used by the model
 
         try:
-            data = self.client.getRecipes(searchTerm)
+            data = self.client.getRecipes(searchTerm, ingredients)
 
             # if an error occured, return it to be displayed
             if "error" in data.keys():

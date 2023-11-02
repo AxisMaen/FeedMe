@@ -876,7 +876,7 @@ QPushButton:pressed {
                <height>58</height>
               </size>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
+             <layout class="QHBoxLayout" name="horizontalLayout_17">
               <item>
                <widget class="QLineEdit" name="recipesLineEdit">
                 <property name="sizePolicy">
@@ -908,6 +908,13 @@ QPushButton:pressed {
                 </property>
                 <property name="clearButtonEnabled">
                  <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="recipesFilterCheckBox">
+                <property name="text">
+                 <string>Only use ingredients in my fridge</string>
                 </property>
                </widget>
               </item>

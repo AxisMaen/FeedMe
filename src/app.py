@@ -117,7 +117,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
     # pass search text to model
     def searchRecipes(self):
-        self.recipesTableModel.search(self.recipesLineEdit.text())
+
+        searchTerm = self.recipesLineEdit.text()
+        ingredients = []
+
+        # add filter to search
+        if self.recipesFilterCheckBox.isChecked():
+            # get all ingredients in the fridge for filtering
+            ingredients = self.fridgeTableModel.getIngredients()
+
+        self.recipesTableModel.search(searchTerm, ingredients)
 
     # get selected food item data and pass to shopping list model
     def addToShoppingList(self):
