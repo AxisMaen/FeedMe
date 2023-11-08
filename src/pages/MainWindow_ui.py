@@ -21,35 +21,21 @@ class Ui_FeedMe(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.sidebar = QtWidgets.QWidget(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.sidebar.sizePolicy().hasHeightForWidth())
         self.sidebar.setSizePolicy(sizePolicy)
-        self.sidebar.setMinimumSize(QtCore.QSize(201, 671))
+        self.sidebar.setMinimumSize(QtCore.QSize(230, 671))
+        self.sidebar.setMaximumSize(QtCore.QSize(300, 16777215))
         self.sidebar.setStyleSheet("background-color: #202123;")
         self.sidebar.setObjectName("sidebar")
-        self.sidebarSearchButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarSearchButton.setGeometry(QtCore.QRect(10, 90, 181, 41))
-        font = QtGui.QFont()
-        font.setFamily("Source Sans 3")
-        font.setPointSize(16)
-        self.sidebarSearchButton.setFont(font)
-        self.sidebarSearchButton.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.sidebarSearchButton.setAutoFillBackground(False)
-        self.sidebarSearchButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/resources/icons/searchIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.sidebarSearchButton.setIcon(icon)
-        self.sidebarSearchButton.setObjectName("sidebarSearchButton")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.sidebar)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.sidebarLabel = QtWidgets.QLabel(self.sidebar)
-        self.sidebarLabel.setGeometry(QtCore.QRect(5, 10, 191, 51))
+        self.sidebarLabel.setMaximumSize(QtCore.QSize(16777215, 51))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(24)
@@ -59,79 +45,145 @@ class Ui_FeedMe(object):
         self.sidebarLabel.setStyleSheet("color: #DBD9D8;")
         self.sidebarLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.sidebarLabel.setObjectName("sidebarLabel")
+        self.verticalLayout_8.addWidget(self.sidebarLabel)
+        self.sidebarSearchButton = QtWidgets.QPushButton(self.sidebar)
+        self.sidebarSearchButton.setMinimumSize(QtCore.QSize(0, 41))
+        self.sidebarSearchButton.setMaximumSize(QtCore.QSize(212, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Source Sans 3")
+        font.setPointSize(16)
+        self.sidebarSearchButton.setFont(font)
+        self.sidebarSearchButton.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.sidebarSearchButton.setAutoFillBackground(False)
+        self.sidebarSearchButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
+        icon = QtGui.QIcon()
+        icon.addPixmap(
+            QtGui.QPixmap(":/icons/resources/icons/searchIcon.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
+        self.sidebarSearchButton.setIcon(icon)
+        self.sidebarSearchButton.setObjectName("sidebarSearchButton")
+        self.verticalLayout_8.addWidget(self.sidebarSearchButton)
         self.sidebarShoppingButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarShoppingButton.setGeometry(QtCore.QRect(10, 150, 181, 41))
+        self.sidebarShoppingButton.setMinimumSize(QtCore.QSize(0, 41))
+        self.sidebarShoppingButton.setMaximumSize(QtCore.QSize(212, 16777215))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(16)
         self.sidebarShoppingButton.setFont(font)
-        self.sidebarShoppingButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.sidebarShoppingButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/resources/icons/listIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap(":/icons/resources/icons/listIcon.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.sidebarShoppingButton.setIcon(icon1)
         self.sidebarShoppingButton.setObjectName("sidebarShoppingButton")
+        self.verticalLayout_8.addWidget(self.sidebarShoppingButton)
         self.sidebarFridgeButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarFridgeButton.setGeometry(QtCore.QRect(10, 210, 181, 41))
+        self.sidebarFridgeButton.setMinimumSize(QtCore.QSize(0, 41))
+        self.sidebarFridgeButton.setMaximumSize(QtCore.QSize(212, 16777215))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(16)
         self.sidebarFridgeButton.setFont(font)
-        self.sidebarFridgeButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.sidebarFridgeButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/resources/icons/fridgeIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap(":/icons/resources/icons/fridgeIcon.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.sidebarFridgeButton.setIcon(icon2)
         self.sidebarFridgeButton.setObjectName("sidebarFridgeButton")
+        self.verticalLayout_8.addWidget(self.sidebarFridgeButton)
         self.sidebarRecipesButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarRecipesButton.setGeometry(QtCore.QRect(10, 270, 181, 41))
+        self.sidebarRecipesButton.setMinimumSize(QtCore.QSize(0, 41))
+        self.sidebarRecipesButton.setMaximumSize(QtCore.QSize(212, 16777215))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(16)
         self.sidebarRecipesButton.setFont(font)
-        self.sidebarRecipesButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.sidebarRecipesButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/resources/icons/recipesIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(
+            QtGui.QPixmap(":/icons/resources/icons/recipesIcon.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.sidebarRecipesButton.setIcon(icon3)
         self.sidebarRecipesButton.setObjectName("sidebarRecipesButton")
+        self.verticalLayout_8.addWidget(self.sidebarRecipesButton)
         self.sidebarNutritionButton = QtWidgets.QPushButton(self.sidebar)
-        self.sidebarNutritionButton.setGeometry(QtCore.QRect(10, 330, 181, 41))
+        self.sidebarNutritionButton.setMinimumSize(QtCore.QSize(0, 41))
+        self.sidebarNutritionButton.setMaximumSize(QtCore.QSize(212, 16777215))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(16)
         self.sidebarNutritionButton.setFont(font)
-        self.sidebarNutritionButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.sidebarNutritionButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:left; text-indent: 5; padding-left: 10px;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/resources/icons/nutritionIcon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(
+            QtGui.QPixmap(":/icons/resources/icons/nutritionIcon.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.sidebarNutritionButton.setIcon(icon4)
         self.sidebarNutritionButton.setObjectName("sidebarNutritionButton")
+        self.verticalLayout_8.addWidget(self.sidebarNutritionButton)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 200, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
+        )
+        self.verticalLayout_8.addItem(spacerItem)
         self.horizontalLayout.addWidget(self.sidebar)
         self.mainWindowStack = QtWidgets.QStackedWidget(self.centralwidget)
         self.mainWindowStack.setObjectName("mainWindowStack")
         self.searchTab = QtWidgets.QWidget()
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.searchTab.sizePolicy().hasHeightForWidth())
@@ -140,7 +192,9 @@ class Ui_FeedMe(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.searchTab)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.searchPage = QtWidgets.QWidget(self.searchTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.searchPage.sizePolicy().hasHeightForWidth())
@@ -161,7 +215,9 @@ class Ui_FeedMe(object):
         font.setBold(False)
         font.setWeight(50)
         self.searchNameLabel.setFont(font)
-        self.searchNameLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.searchNameLabel.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.searchNameLabel.setIndent(9)
         self.searchNameLabel.setObjectName("searchNameLabel")
         self.verticalLayout.addWidget(self.searchNameLabel)
@@ -171,43 +227,63 @@ class Ui_FeedMe(object):
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.searchSearchBar)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.searchLineEdit = QtWidgets.QLineEdit(self.searchSearchBar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchLineEdit.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.searchLineEdit.sizePolicy().hasHeightForWidth()
+        )
         self.searchLineEdit.setSizePolicy(sizePolicy)
         self.searchLineEdit.setMaximumSize(QtCore.QSize(171, 50))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(12)
         self.searchLineEdit.setFont(font)
-        self.searchLineEdit.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius:18px; padding-left: 10px;")
+        self.searchLineEdit.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius:18px; padding-left: 10px;"
+        )
         self.searchLineEdit.setCursorPosition(0)
         self.searchLineEdit.setClearButtonEnabled(False)
         self.searchLineEdit.setObjectName("searchLineEdit")
         self.verticalLayout_4.addWidget(self.searchLineEdit)
         self.verticalLayout.addWidget(self.searchSearchBar)
         self.searchListWidget = QtWidgets.QWidget(self.searchPage)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchListWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.searchListWidget.sizePolicy().hasHeightForWidth()
+        )
         self.searchListWidget.setSizePolicy(sizePolicy)
         self.searchListWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.searchListWidget.setObjectName("searchListWidget")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.searchListWidget)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.searchTableView = QtWidgets.QTableView(self.searchListWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchTableView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.searchTableView.sizePolicy().hasHeightForWidth()
+        )
         self.searchTableView.setSizePolicy(sizePolicy)
         self.searchTableView.setMinimumSize(QtCore.QSize(600, 431))
         self.searchTableView.setMaximumSize(QtCore.QSize(16777215, 500))
-        self.searchTableView.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden;")
-        self.searchTableView.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        self.searchTableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.searchTableView.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden;"
+        )
+        self.searchTableView.setSelectionMode(
+            QtWidgets.QAbstractItemView.ExtendedSelection
+        )
+        self.searchTableView.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows
+        )
         self.searchTableView.setShowGrid(False)
         self.searchTableView.setCornerButtonEnabled(False)
         self.searchTableView.setObjectName("searchTableView")
@@ -215,29 +291,39 @@ class Ui_FeedMe(object):
         self.searchTableView.horizontalHeader().setStretchLastSection(True)
         self.searchTableView.verticalHeader().setVisible(False)
         self.horizontalLayout_5.addWidget(self.searchTableView)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem)
-        self.searchAddToShoppingListButton = QtWidgets.QPushButton(self.searchListWidget)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
+        self.horizontalLayout_5.addItem(spacerItem1)
+        self.searchAddToShoppingListButton = QtWidgets.QPushButton(
+            self.searchListWidget
+        )
         self.searchAddToShoppingListButton.setMinimumSize(QtCore.QSize(111, 71))
         self.searchAddToShoppingListButton.setMaximumSize(QtCore.QSize(111, 71))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.searchAddToShoppingListButton.setFont(font)
-        self.searchAddToShoppingListButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        self.searchAddToShoppingListButton.setObjectName("searchAddToShoppingListButton")
+        self.searchAddToShoppingListButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
+        self.searchAddToShoppingListButton.setObjectName(
+            "searchAddToShoppingListButton"
+        )
         self.horizontalLayout_5.addWidget(self.searchAddToShoppingListButton)
         self.verticalLayout.addWidget(self.searchListWidget)
         self.verticalLayout_12.addWidget(self.searchPage)
         self.mainWindowStack.addWidget(self.searchTab)
         self.shoppingTab = QtWidgets.QWidget()
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.shoppingTab.sizePolicy().hasHeightForWidth())
@@ -246,7 +332,9 @@ class Ui_FeedMe(object):
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.shoppingTab)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
         self.shoppingPage = QtWidgets.QWidget(self.shoppingTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.shoppingPage.sizePolicy().hasHeightForWidth())
@@ -262,30 +350,44 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(20)
         self.shoppingNameLabel.setFont(font)
-        self.shoppingNameLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.shoppingNameLabel.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.shoppingNameLabel.setIndent(9)
         self.shoppingNameLabel.setObjectName("shoppingNameLabel")
         self.verticalLayout_6.addWidget(self.shoppingNameLabel)
         self.shoppingListWidget = QtWidgets.QWidget(self.shoppingPage)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.shoppingListWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.shoppingListWidget.sizePolicy().hasHeightForWidth()
+        )
         self.shoppingListWidget.setSizePolicy(sizePolicy)
         self.shoppingListWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.shoppingListWidget.setObjectName("shoppingListWidget")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.shoppingListWidget)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.shoppingTableView = QtWidgets.QTableView(self.shoppingListWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.shoppingTableView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.shoppingTableView.sizePolicy().hasHeightForWidth()
+        )
         self.shoppingTableView.setSizePolicy(sizePolicy)
         self.shoppingTableView.setMinimumSize(QtCore.QSize(600, 431))
         self.shoppingTableView.setMaximumSize(QtCore.QSize(16777215, 500))
-        self.shoppingTableView.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden;")
-        self.shoppingTableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.shoppingTableView.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden;"
+        )
+        self.shoppingTableView.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows
+        )
         self.shoppingTableView.setShowGrid(False)
         self.shoppingTableView.setObjectName("shoppingTableView")
         self.shoppingTableView.horizontalHeader().setVisible(False)
@@ -303,13 +405,15 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.shoppingMoveToFridgeButton.setFont(font)
-        self.shoppingMoveToFridgeButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.shoppingMoveToFridgeButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         self.shoppingMoveToFridgeButton.setObjectName("shoppingMoveToFridgeButton")
         self.verticalLayout_3.addWidget(self.shoppingMoveToFridgeButton)
         self.shoppingRemoveButton = QtWidgets.QPushButton(self.widget)
@@ -319,13 +423,15 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.shoppingRemoveButton.setFont(font)
-        self.shoppingRemoveButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.shoppingRemoveButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         self.shoppingRemoveButton.setObjectName("shoppingRemoveButton")
         self.verticalLayout_3.addWidget(self.shoppingRemoveButton)
         self.horizontalLayout_6.addWidget(self.widget)
@@ -333,7 +439,9 @@ class Ui_FeedMe(object):
         self.verticalLayout_13.addWidget(self.shoppingPage)
         self.mainWindowStack.addWidget(self.shoppingTab)
         self.fridgeTab = QtWidgets.QWidget()
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.fridgeTab.sizePolicy().hasHeightForWidth())
@@ -342,7 +450,9 @@ class Ui_FeedMe(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.fridgeTab)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.fridgePage = QtWidgets.QWidget(self.fridgeTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.fridgePage.sizePolicy().hasHeightForWidth())
@@ -358,38 +468,54 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(20)
         self.fridgeNameLabel.setFont(font)
-        self.fridgeNameLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.fridgeNameLabel.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.fridgeNameLabel.setIndent(9)
         self.fridgeNameLabel.setObjectName("fridgeNameLabel")
         self.verticalLayout_5.addWidget(self.fridgeNameLabel)
         self.fridgeListWidget = QtWidgets.QWidget(self.fridgePage)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fridgeListWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.fridgeListWidget.sizePolicy().hasHeightForWidth()
+        )
         self.fridgeListWidget.setSizePolicy(sizePolicy)
         self.fridgeListWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.fridgeListWidget.setObjectName("fridgeListWidget")
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout(self.fridgeListWidget)
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
         self.fridgeTableView = QtWidgets.QTableView(self.fridgeListWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fridgeTableView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.fridgeTableView.sizePolicy().hasHeightForWidth()
+        )
         self.fridgeTableView.setSizePolicy(sizePolicy)
         self.fridgeTableView.setMinimumSize(QtCore.QSize(600, 431))
         self.fridgeTableView.setMaximumSize(QtCore.QSize(16777215, 500))
-        self.fridgeTableView.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden;")
-        self.fridgeTableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.fridgeTableView.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden;"
+        )
+        self.fridgeTableView.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows
+        )
         self.fridgeTableView.setShowGrid(False)
         self.fridgeTableView.setObjectName("fridgeTableView")
         self.fridgeTableView.horizontalHeader().setVisible(False)
         self.fridgeTableView.horizontalHeader().setStretchLastSection(True)
         self.fridgeTableView.verticalHeader().setVisible(False)
         self.horizontalLayout_15.addWidget(self.fridgeTableView)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem1)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
+        self.horizontalLayout_15.addItem(spacerItem2)
         self.fridgeRemoveButton = QtWidgets.QPushButton(self.fridgeListWidget)
         self.fridgeRemoveButton.setMinimumSize(QtCore.QSize(111, 71))
         self.fridgeRemoveButton.setMaximumSize(QtCore.QSize(111, 71))
@@ -397,20 +523,24 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.fridgeRemoveButton.setFont(font)
-        self.fridgeRemoveButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
+        self.fridgeRemoveButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
         self.fridgeRemoveButton.setObjectName("fridgeRemoveButton")
         self.horizontalLayout_15.addWidget(self.fridgeRemoveButton)
         self.verticalLayout_5.addWidget(self.fridgeListWidget)
         self.verticalLayout_2.addWidget(self.fridgePage)
         self.mainWindowStack.addWidget(self.fridgeTab)
         self.recipesTab = QtWidgets.QWidget()
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.recipesTab.sizePolicy().hasHeightForWidth())
@@ -419,7 +549,9 @@ class Ui_FeedMe(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.recipesTab)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.recipesPage = QtWidgets.QWidget(self.recipesTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.recipesPage.sizePolicy().hasHeightForWidth())
@@ -434,7 +566,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(20)
         self.recipesNameLabel.setFont(font)
-        self.recipesNameLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.recipesNameLabel.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.recipesNameLabel.setIndent(9)
         self.recipesNameLabel.setObjectName("recipesNameLabel")
         self.verticalLayout_7.addWidget(self.recipesNameLabel)
@@ -444,17 +578,23 @@ class Ui_FeedMe(object):
         self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.recipesSearchBar)
         self.horizontalLayout_17.setObjectName("horizontalLayout_17")
         self.recipesLineEdit = QtWidgets.QLineEdit(self.recipesSearchBar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.recipesLineEdit.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.recipesLineEdit.sizePolicy().hasHeightForWidth()
+        )
         self.recipesLineEdit.setSizePolicy(sizePolicy)
         self.recipesLineEdit.setMaximumSize(QtCore.QSize(171, 50))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Symbol")
         font.setPointSize(12)
         self.recipesLineEdit.setFont(font)
-        self.recipesLineEdit.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius:18px; padding-left: 10px;")
+        self.recipesLineEdit.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden; border-radius:18px; padding-left: 10px;"
+        )
         self.recipesLineEdit.setCursorPosition(0)
         self.recipesLineEdit.setClearButtonEnabled(False)
         self.recipesLineEdit.setObjectName("recipesLineEdit")
@@ -464,26 +604,40 @@ class Ui_FeedMe(object):
         self.horizontalLayout_17.addWidget(self.recipesFilterCheckBox)
         self.verticalLayout_7.addWidget(self.recipesSearchBar)
         self.recipesListWidget = QtWidgets.QWidget(self.recipesPage)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.recipesListWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.recipesListWidget.sizePolicy().hasHeightForWidth()
+        )
         self.recipesListWidget.setSizePolicy(sizePolicy)
         self.recipesListWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.recipesListWidget.setObjectName("recipesListWidget")
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.recipesListWidget)
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
         self.recipesTableView = QtWidgets.QTableView(self.recipesListWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.recipesTableView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.recipesTableView.sizePolicy().hasHeightForWidth()
+        )
         self.recipesTableView.setSizePolicy(sizePolicy)
         self.recipesTableView.setMinimumSize(QtCore.QSize(600, 431))
         self.recipesTableView.setMaximumSize(QtCore.QSize(16777215, 500))
-        self.recipesTableView.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden;")
-        self.recipesTableView.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        self.recipesTableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.recipesTableView.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden;"
+        )
+        self.recipesTableView.setSelectionMode(
+            QtWidgets.QAbstractItemView.ExtendedSelection
+        )
+        self.recipesTableView.setSelectionBehavior(
+            QtWidgets.QAbstractItemView.SelectRows
+        )
         self.recipesTableView.setShowGrid(False)
         self.recipesTableView.setCornerButtonEnabled(False)
         self.recipesTableView.setObjectName("recipesTableView")
@@ -491,23 +645,31 @@ class Ui_FeedMe(object):
         self.recipesTableView.horizontalHeader().setStretchLastSection(True)
         self.recipesTableView.verticalHeader().setVisible(False)
         self.horizontalLayout_16.addWidget(self.recipesTableView)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_16.addItem(spacerItem2)
-        self.recipesAddToNutritionListButton = QtWidgets.QPushButton(self.recipesListWidget)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
+        self.horizontalLayout_16.addItem(spacerItem3)
+        self.recipesAddToNutritionListButton = QtWidgets.QPushButton(
+            self.recipesListWidget
+        )
         self.recipesAddToNutritionListButton.setMinimumSize(QtCore.QSize(111, 71))
         self.recipesAddToNutritionListButton.setMaximumSize(QtCore.QSize(111, 71))
         font = QtGui.QFont()
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.recipesAddToNutritionListButton.setFont(font)
-        self.recipesAddToNutritionListButton.setStyleSheet("QPushButton {\n"
-"color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #A6A6A6;\n"
-"}")
-        self.recipesAddToNutritionListButton.setObjectName("recipesAddToNutritionListButton")
+        self.recipesAddToNutritionListButton.setStyleSheet(
+            "QPushButton {\n"
+            "color: #DBD9D8; background-color: #2d2d23; border: 1px hidden; border-radius:18px; text-align:center;\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            " background-color: #A6A6A6;\n"
+            "}"
+        )
+        self.recipesAddToNutritionListButton.setObjectName(
+            "recipesAddToNutritionListButton"
+        )
         self.horizontalLayout_16.addWidget(self.recipesAddToNutritionListButton)
         self.verticalLayout_7.addWidget(self.recipesListWidget)
         self.verticalLayout_9.addWidget(self.recipesPage)
@@ -517,10 +679,14 @@ class Ui_FeedMe(object):
         self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.nutritionTab)
         self.verticalLayout_17.setObjectName("verticalLayout_17")
         self.nutritionPage = QtWidgets.QWidget(self.nutritionTab)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionPage.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionPage.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionPage.setSizePolicy(sizePolicy)
         self.nutritionPage.setMinimumSize(QtCore.QSize(781, 571))
         self.nutritionPage.setObjectName("nutritionPage")
@@ -532,7 +698,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(20)
         self.nutritionNameLabel.setFont(font)
-        self.nutritionNameLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.nutritionNameLabel.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.nutritionNameLabel.setIndent(9)
         self.nutritionNameLabel.setObjectName("nutritionNameLabel")
         self.verticalLayout_16.addWidget(self.nutritionNameLabel)
@@ -543,10 +711,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.nutritionNumOfDaysWidget)
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.nutritionNumOfDaysLabel = QtWidgets.QLabel(self.nutritionNumOfDaysWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionNumOfDaysLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionNumOfDaysLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionNumOfDaysLabel.setSizePolicy(sizePolicy)
         self.nutritionNumOfDaysLabel.setMinimumSize(QtCore.QSize(150, 40))
         self.nutritionNumOfDaysLabel.setMaximumSize(QtCore.QSize(200, 40))
@@ -557,10 +729,14 @@ class Ui_FeedMe(object):
         self.nutritionNumOfDaysLabel.setObjectName("nutritionNumOfDaysLabel")
         self.horizontalLayout_14.addWidget(self.nutritionNumOfDaysLabel)
         self.nutritionSpinBox = QtWidgets.QSpinBox(self.nutritionNumOfDaysWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSpinBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSpinBox.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSpinBox.setSizePolicy(sizePolicy)
         self.nutritionSpinBox.setMaximumSize(QtCore.QSize(33, 20))
         self.nutritionSpinBox.setMinimum(1)
@@ -568,41 +744,57 @@ class Ui_FeedMe(object):
         self.horizontalLayout_14.addWidget(self.nutritionSpinBox)
         self.verticalLayout_16.addWidget(self.nutritionNumOfDaysWidget)
         self.nutritionListWidget = QtWidgets.QWidget(self.nutritionPage)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionListWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionListWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionListWidget.setSizePolicy(sizePolicy)
         self.nutritionListWidget.setMinimumSize(QtCore.QSize(771, 521))
         self.nutritionListWidget.setObjectName("nutritionListWidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.nutritionListWidget)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.nutritionTableView = QtWidgets.QTableView(self.nutritionListWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTableView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTableView.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTableView.setSizePolicy(sizePolicy)
         self.nutritionTableView.setMinimumSize(QtCore.QSize(150, 431))
-        self.nutritionTableView.setStyleSheet("background-color: rgba(255, 255, 255, 255); border: 1px hidden;")
+        self.nutritionTableView.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 255); border: 1px hidden;"
+        )
         self.nutritionTableView.setShowGrid(False)
         self.nutritionTableView.setObjectName("nutritionTableView")
         self.nutritionTableView.horizontalHeader().setVisible(False)
         self.nutritionTableView.horizontalHeader().setStretchLastSection(True)
         self.nutritionTableView.verticalHeader().setVisible(False)
         self.horizontalLayout_2.addWidget(self.nutritionTableView)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_2.addItem(spacerItem3)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_2.addItem(spacerItem4)
         self.nutritionInfoWidget = QtWidgets.QWidget(self.nutritionListWidget)
         self.nutritionInfoWidget.setMinimumSize(QtCore.QSize(381, 371))
         self.nutritionInfoWidget.setObjectName("nutritionInfoWidget")
         self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.nutritionInfoWidget)
         self.verticalLayout_15.setObjectName("verticalLayout_15")
         self.nutritionCaloriesWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCaloriesWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCaloriesWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCaloriesWidget.setSizePolicy(sizePolicy)
         self.nutritionCaloriesWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionCaloriesWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -611,10 +803,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.nutritionCaloriesLabel = QtWidgets.QLabel(self.nutritionCaloriesWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCaloriesLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCaloriesLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCaloriesLabel.setSizePolicy(sizePolicy)
         self.nutritionCaloriesLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionCaloriesLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -624,13 +820,19 @@ class Ui_FeedMe(object):
         self.nutritionCaloriesLabel.setFont(font)
         self.nutritionCaloriesLabel.setObjectName("nutritionCaloriesLabel")
         self.horizontalLayout_3.addWidget(self.nutritionCaloriesLabel)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_3.addItem(spacerItem4)
+        spacerItem5 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_3.addItem(spacerItem5)
         self.nutritionCaloriesInfoLabel = QtWidgets.QLabel(self.nutritionCaloriesWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCaloriesInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCaloriesInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCaloriesInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionCaloriesInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionCaloriesInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -638,7 +840,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionCaloriesInfoLabel.setFont(font)
-        self.nutritionCaloriesInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionCaloriesInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionCaloriesInfoLabel.setObjectName("nutritionCaloriesInfoLabel")
         self.horizontalLayout_3.addWidget(self.nutritionCaloriesInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionCaloriesWidget)
@@ -648,10 +852,14 @@ class Ui_FeedMe(object):
         self.line.setObjectName("line")
         self.verticalLayout_15.addWidget(self.line)
         self.nutritionTotalFatWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalFatWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalFatWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalFatWidget.setSizePolicy(sizePolicy)
         self.nutritionTotalFatWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionTotalFatWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -660,10 +868,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.nutritionTotalFatLabel = QtWidgets.QLabel(self.nutritionTotalFatWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalFatLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalFatLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalFatLabel.setSizePolicy(sizePolicy)
         self.nutritionTotalFatLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionTotalFatLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -673,13 +885,19 @@ class Ui_FeedMe(object):
         self.nutritionTotalFatLabel.setFont(font)
         self.nutritionTotalFatLabel.setObjectName("nutritionTotalFatLabel")
         self.horizontalLayout_4.addWidget(self.nutritionTotalFatLabel)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_4.addItem(spacerItem5)
+        spacerItem6 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_4.addItem(spacerItem6)
         self.nutritionTotalFatInfoLabel = QtWidgets.QLabel(self.nutritionTotalFatWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalFatInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalFatInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalFatInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionTotalFatInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionTotalFatInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -687,7 +905,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionTotalFatInfoLabel.setFont(font)
-        self.nutritionTotalFatInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionTotalFatInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionTotalFatInfoLabel.setObjectName("nutritionTotalFatInfoLabel")
         self.horizontalLayout_4.addWidget(self.nutritionTotalFatInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionTotalFatWidget)
@@ -697,22 +917,34 @@ class Ui_FeedMe(object):
         self.line_2.setObjectName("line_2")
         self.verticalLayout_15.addWidget(self.line_2)
         self.nutritionSaturatedFatWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSaturatedFatWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSaturatedFatWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSaturatedFatWidget.setSizePolicy(sizePolicy)
         self.nutritionSaturatedFatWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionSaturatedFatWidget.setMaximumSize(QtCore.QSize(16777215, 31))
         self.nutritionSaturatedFatWidget.setObjectName("nutritionSaturatedFatWidget")
-        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.nutritionSaturatedFatWidget)
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(
+            self.nutritionSaturatedFatWidget
+        )
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.nutritionSaturatedFatLabel = QtWidgets.QLabel(self.nutritionSaturatedFatWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.nutritionSaturatedFatLabel = QtWidgets.QLabel(
+            self.nutritionSaturatedFatWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSaturatedFatLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSaturatedFatLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSaturatedFatLabel.setSizePolicy(sizePolicy)
         self.nutritionSaturatedFatLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionSaturatedFatLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -723,13 +955,21 @@ class Ui_FeedMe(object):
         self.nutritionSaturatedFatLabel.setIndent(20)
         self.nutritionSaturatedFatLabel.setObjectName("nutritionSaturatedFatLabel")
         self.horizontalLayout_7.addWidget(self.nutritionSaturatedFatLabel)
-        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_7.addItem(spacerItem6)
-        self.nutritionSaturatedFatInfoLabel = QtWidgets.QLabel(self.nutritionSaturatedFatWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        spacerItem7 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_7.addItem(spacerItem7)
+        self.nutritionSaturatedFatInfoLabel = QtWidgets.QLabel(
+            self.nutritionSaturatedFatWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSaturatedFatInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSaturatedFatInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSaturatedFatInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionSaturatedFatInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionSaturatedFatInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -737,8 +977,12 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionSaturatedFatInfoLabel.setFont(font)
-        self.nutritionSaturatedFatInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.nutritionSaturatedFatInfoLabel.setObjectName("nutritionSaturatedFatInfoLabel")
+        self.nutritionSaturatedFatInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
+        self.nutritionSaturatedFatInfoLabel.setObjectName(
+            "nutritionSaturatedFatInfoLabel"
+        )
         self.horizontalLayout_7.addWidget(self.nutritionSaturatedFatInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionSaturatedFatWidget)
         self.line_3 = QtWidgets.QFrame(self.nutritionInfoWidget)
@@ -747,10 +991,14 @@ class Ui_FeedMe(object):
         self.line_3.setObjectName("line_3")
         self.verticalLayout_15.addWidget(self.line_3)
         self.nutritionCholesterolWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCholesterolWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCholesterolWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCholesterolWidget.setSizePolicy(sizePolicy)
         self.nutritionCholesterolWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionCholesterolWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -758,11 +1006,17 @@ class Ui_FeedMe(object):
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.nutritionCholesterolWidget)
         self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        self.nutritionCholesterolLabel = QtWidgets.QLabel(self.nutritionCholesterolWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.nutritionCholesterolLabel = QtWidgets.QLabel(
+            self.nutritionCholesterolWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCholesterolLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCholesterolLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCholesterolLabel.setSizePolicy(sizePolicy)
         self.nutritionCholesterolLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionCholesterolLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -772,13 +1026,21 @@ class Ui_FeedMe(object):
         self.nutritionCholesterolLabel.setFont(font)
         self.nutritionCholesterolLabel.setObjectName("nutritionCholesterolLabel")
         self.horizontalLayout_8.addWidget(self.nutritionCholesterolLabel)
-        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_8.addItem(spacerItem7)
-        self.nutritionCholesterolInfoLabel = QtWidgets.QLabel(self.nutritionCholesterolWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        spacerItem8 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_8.addItem(spacerItem8)
+        self.nutritionCholesterolInfoLabel = QtWidgets.QLabel(
+            self.nutritionCholesterolWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionCholesterolInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionCholesterolInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionCholesterolInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionCholesterolInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionCholesterolInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -786,8 +1048,12 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionCholesterolInfoLabel.setFont(font)
-        self.nutritionCholesterolInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.nutritionCholesterolInfoLabel.setObjectName("nutritionCholesterolInfoLabel")
+        self.nutritionCholesterolInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
+        self.nutritionCholesterolInfoLabel.setObjectName(
+            "nutritionCholesterolInfoLabel"
+        )
         self.horizontalLayout_8.addWidget(self.nutritionCholesterolInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionCholesterolWidget)
         self.line_4 = QtWidgets.QFrame(self.nutritionInfoWidget)
@@ -796,10 +1062,14 @@ class Ui_FeedMe(object):
         self.line_4.setObjectName("line_4")
         self.verticalLayout_15.addWidget(self.line_4)
         self.nutritionSodiumWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSodiumWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSodiumWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSodiumWidget.setSizePolicy(sizePolicy)
         self.nutritionSodiumWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionSodiumWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -808,10 +1078,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
         self.nutritionSodiumLabel = QtWidgets.QLabel(self.nutritionSodiumWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSodiumLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSodiumLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSodiumLabel.setSizePolicy(sizePolicy)
         self.nutritionSodiumLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionSodiumLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -821,13 +1095,19 @@ class Ui_FeedMe(object):
         self.nutritionSodiumLabel.setFont(font)
         self.nutritionSodiumLabel.setObjectName("nutritionSodiumLabel")
         self.horizontalLayout_9.addWidget(self.nutritionSodiumLabel)
-        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_9.addItem(spacerItem8)
+        spacerItem9 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_9.addItem(spacerItem9)
         self.nutritionSodiumInfoLabel = QtWidgets.QLabel(self.nutritionSodiumWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionSodiumInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionSodiumInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionSodiumInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionSodiumInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionSodiumInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -835,7 +1115,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionSodiumInfoLabel.setFont(font)
-        self.nutritionSodiumInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionSodiumInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionSodiumInfoLabel.setObjectName("nutritionSodiumInfoLabel")
         self.horizontalLayout_9.addWidget(self.nutritionSodiumInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionSodiumWidget)
@@ -845,10 +1127,14 @@ class Ui_FeedMe(object):
         self.line_5.setObjectName("line_5")
         self.verticalLayout_15.addWidget(self.line_5)
         self.nutritionTotalCarbsWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalCarbsWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalCarbsWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalCarbsWidget.setSizePolicy(sizePolicy)
         self.nutritionTotalCarbsWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionTotalCarbsWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -857,10 +1143,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.nutritionTotalCarbsLabel = QtWidgets.QLabel(self.nutritionTotalCarbsWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalCarbsLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalCarbsLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalCarbsLabel.setSizePolicy(sizePolicy)
         self.nutritionTotalCarbsLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionTotalCarbsLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -870,13 +1160,21 @@ class Ui_FeedMe(object):
         self.nutritionTotalCarbsLabel.setFont(font)
         self.nutritionTotalCarbsLabel.setObjectName("nutritionTotalCarbsLabel")
         self.horizontalLayout_10.addWidget(self.nutritionTotalCarbsLabel)
-        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_10.addItem(spacerItem9)
-        self.nutritionTotalCarbsInfoLabel = QtWidgets.QLabel(self.nutritionTotalCarbsWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        spacerItem10 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_10.addItem(spacerItem10)
+        self.nutritionTotalCarbsInfoLabel = QtWidgets.QLabel(
+            self.nutritionTotalCarbsWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionTotalCarbsInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionTotalCarbsInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionTotalCarbsInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionTotalCarbsInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionTotalCarbsInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -884,7 +1182,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionTotalCarbsInfoLabel.setFont(font)
-        self.nutritionTotalCarbsInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionTotalCarbsInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionTotalCarbsInfoLabel.setObjectName("nutritionTotalCarbsInfoLabel")
         self.horizontalLayout_10.addWidget(self.nutritionTotalCarbsInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionTotalCarbsWidget)
@@ -894,10 +1194,14 @@ class Ui_FeedMe(object):
         self.line_6.setObjectName("line_6")
         self.verticalLayout_15.addWidget(self.line_6)
         self.nutritionFibersWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionFibersWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionFibersWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionFibersWidget.setSizePolicy(sizePolicy)
         self.nutritionFibersWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionFibersWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -906,10 +1210,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.nutritionFibersLabel = QtWidgets.QLabel(self.nutritionFibersWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionFibersLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionFibersLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionFibersLabel.setSizePolicy(sizePolicy)
         self.nutritionFibersLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionFibersLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -920,13 +1228,19 @@ class Ui_FeedMe(object):
         self.nutritionFibersLabel.setIndent(20)
         self.nutritionFibersLabel.setObjectName("nutritionFibersLabel")
         self.horizontalLayout_11.addWidget(self.nutritionFibersLabel)
-        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_11.addItem(spacerItem10)
+        spacerItem11 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_11.addItem(spacerItem11)
         self.nutritionFibersInfoLabel = QtWidgets.QLabel(self.nutritionFibersWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionFibersInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionFibersInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionFibersInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionFibersInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionFibersInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -934,7 +1248,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionFibersInfoLabel.setFont(font)
-        self.nutritionFibersInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionFibersInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionFibersInfoLabel.setObjectName("nutritionFibersInfoLabel")
         self.horizontalLayout_11.addWidget(self.nutritionFibersInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionFibersWidget)
@@ -944,22 +1260,34 @@ class Ui_FeedMe(object):
         self.line_7.setObjectName("line_7")
         self.verticalLayout_15.addWidget(self.line_7)
         self.nutritionAddedSugarsWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionAddedSugarsWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionAddedSugarsWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionAddedSugarsWidget.setSizePolicy(sizePolicy)
         self.nutritionAddedSugarsWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionAddedSugarsWidget.setMaximumSize(QtCore.QSize(16777215, 31))
         self.nutritionAddedSugarsWidget.setObjectName("nutritionAddedSugarsWidget")
-        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.nutritionAddedSugarsWidget)
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(
+            self.nutritionAddedSugarsWidget
+        )
         self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        self.nutritionAddedSugarsLabel = QtWidgets.QLabel(self.nutritionAddedSugarsWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.nutritionAddedSugarsLabel = QtWidgets.QLabel(
+            self.nutritionAddedSugarsWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionAddedSugarsLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionAddedSugarsLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionAddedSugarsLabel.setSizePolicy(sizePolicy)
         self.nutritionAddedSugarsLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionAddedSugarsLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -969,13 +1297,21 @@ class Ui_FeedMe(object):
         self.nutritionAddedSugarsLabel.setFont(font)
         self.nutritionAddedSugarsLabel.setObjectName("nutritionAddedSugarsLabel")
         self.horizontalLayout_12.addWidget(self.nutritionAddedSugarsLabel)
-        spacerItem11 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_12.addItem(spacerItem11)
-        self.nutritionAddedSugarsInfoLabel = QtWidgets.QLabel(self.nutritionAddedSugarsWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        spacerItem12 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_12.addItem(spacerItem12)
+        self.nutritionAddedSugarsInfoLabel = QtWidgets.QLabel(
+            self.nutritionAddedSugarsWidget
+        )
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionAddedSugarsInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionAddedSugarsInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionAddedSugarsInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionAddedSugarsInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionAddedSugarsInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -983,8 +1319,12 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionAddedSugarsInfoLabel.setFont(font)
-        self.nutritionAddedSugarsInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.nutritionAddedSugarsInfoLabel.setObjectName("nutritionAddedSugarsInfoLabel")
+        self.nutritionAddedSugarsInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
+        self.nutritionAddedSugarsInfoLabel.setObjectName(
+            "nutritionAddedSugarsInfoLabel"
+        )
         self.horizontalLayout_12.addWidget(self.nutritionAddedSugarsInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionAddedSugarsWidget)
         self.line_8 = QtWidgets.QFrame(self.nutritionInfoWidget)
@@ -993,10 +1333,14 @@ class Ui_FeedMe(object):
         self.line_8.setObjectName("line_8")
         self.verticalLayout_15.addWidget(self.line_8)
         self.nutritionProteinWidget = QtWidgets.QWidget(self.nutritionInfoWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionProteinWidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionProteinWidget.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionProteinWidget.setSizePolicy(sizePolicy)
         self.nutritionProteinWidget.setMinimumSize(QtCore.QSize(361, 25))
         self.nutritionProteinWidget.setMaximumSize(QtCore.QSize(16777215, 31))
@@ -1005,10 +1349,14 @@ class Ui_FeedMe(object):
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
         self.nutritionProteinLabel = QtWidgets.QLabel(self.nutritionProteinWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionProteinLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionProteinLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionProteinLabel.setSizePolicy(sizePolicy)
         self.nutritionProteinLabel.setMinimumSize(QtCore.QSize(55, 22))
         self.nutritionProteinLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -1018,13 +1366,19 @@ class Ui_FeedMe(object):
         self.nutritionProteinLabel.setFont(font)
         self.nutritionProteinLabel.setObjectName("nutritionProteinLabel")
         self.horizontalLayout_13.addWidget(self.nutritionProteinLabel)
-        spacerItem12 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout_13.addItem(spacerItem12)
+        spacerItem13 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
+        self.horizontalLayout_13.addItem(spacerItem13)
         self.nutritionProteinInfoLabel = QtWidgets.QLabel(self.nutritionProteinWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nutritionProteinInfoLabel.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.nutritionProteinInfoLabel.sizePolicy().hasHeightForWidth()
+        )
         self.nutritionProteinInfoLabel.setSizePolicy(sizePolicy)
         self.nutritionProteinInfoLabel.setMinimumSize(QtCore.QSize(138, 22))
         self.nutritionProteinInfoLabel.setMaximumSize(QtCore.QSize(150, 22))
@@ -1032,7 +1386,9 @@ class Ui_FeedMe(object):
         font.setFamily("Source Sans 3")
         font.setPointSize(12)
         self.nutritionProteinInfoLabel.setFont(font)
-        self.nutritionProteinInfoLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.nutritionProteinInfoLabel.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.nutritionProteinInfoLabel.setObjectName("nutritionProteinInfoLabel")
         self.horizontalLayout_13.addWidget(self.nutritionProteinInfoLabel)
         self.verticalLayout_15.addWidget(self.nutritionProteinWidget)
@@ -1058,29 +1414,32 @@ class Ui_FeedMe(object):
     def retranslateUi(self, FeedMe):
         _translate = QtCore.QCoreApplication.translate
         FeedMe.setWindowTitle(_translate("FeedMe", "Feed Me"))
-        self.sidebarSearchButton.setText(_translate("FeedMe", "   Food Search"))
         self.sidebarLabel.setText(_translate("FeedMe", "Feed Me"))
+        self.sidebarSearchButton.setText(_translate("FeedMe", "   Food Search"))
         self.sidebarShoppingButton.setText(_translate("FeedMe", "   Shopping List"))
         self.sidebarFridgeButton.setText(_translate("FeedMe", "   My Fridge"))
         self.sidebarRecipesButton.setText(_translate("FeedMe", "   Recipes"))
         self.sidebarNutritionButton.setText(_translate("FeedMe", "   Nutrition"))
         self.searchNameLabel.setText(_translate("FeedMe", "Food Search"))
         self.searchLineEdit.setPlaceholderText(_translate("FeedMe", "🔍 Search"))
-        self.searchAddToShoppingListButton.setText(_translate("FeedMe", "Add to\n"
-"Shoppping\n"
-"List"))
+        self.searchAddToShoppingListButton.setText(
+            _translate("FeedMe", "Add to\n" "Shoppping\n" "List")
+        )
         self.shoppingNameLabel.setText(_translate("FeedMe", "Shopping List"))
-        self.shoppingMoveToFridgeButton.setText(_translate("FeedMe", "Move to\n"
-" My Fridge"))
+        self.shoppingMoveToFridgeButton.setText(
+            _translate("FeedMe", "Move to\n" " My Fridge")
+        )
         self.shoppingRemoveButton.setText(_translate("FeedMe", "Remove"))
         self.fridgeNameLabel.setText(_translate("FeedMe", "My Fridge"))
         self.fridgeRemoveButton.setText(_translate("FeedMe", "Remove"))
         self.recipesNameLabel.setText(_translate("FeedMe", "Recipes"))
         self.recipesLineEdit.setPlaceholderText(_translate("FeedMe", "🔍 Search"))
-        self.recipesFilterCheckBox.setText(_translate("FeedMe", "Only use ingredients in my fridge"))
-        self.recipesAddToNutritionListButton.setText(_translate("FeedMe", "Add to\n"
-"Nutrition\n"
-"List"))
+        self.recipesFilterCheckBox.setText(
+            _translate("FeedMe", "Only use ingredients in my fridge")
+        )
+        self.recipesAddToNutritionListButton.setText(
+            _translate("FeedMe", "Add to\n" "Nutrition\n" "List")
+        )
         self.nutritionNameLabel.setText(_translate("FeedMe", "Nutrition"))
         self.nutritionNumOfDaysLabel.setText(_translate("FeedMe", "Number of days"))
         self.nutritionCaloriesLabel.setText(_translate("FeedMe", "Calories"))
@@ -1093,7 +1452,9 @@ class Ui_FeedMe(object):
         self.nutritionCholesterolInfoLabel.setText(_translate("FeedMe", "0/0 mg"))
         self.nutritionSodiumLabel.setText(_translate("FeedMe", "Sodium"))
         self.nutritionSodiumInfoLabel.setText(_translate("FeedMe", "0/0 mg"))
-        self.nutritionTotalCarbsLabel.setText(_translate("FeedMe", "Total Carbohydrates"))
+        self.nutritionTotalCarbsLabel.setText(
+            _translate("FeedMe", "Total Carbohydrates")
+        )
         self.nutritionTotalCarbsInfoLabel.setText(_translate("FeedMe", "0/0 g"))
         self.nutritionFibersLabel.setText(_translate("FeedMe", "Dietary Fibers"))
         self.nutritionFibersInfoLabel.setText(_translate("FeedMe", "0/0 g"))
@@ -1101,5 +1462,7 @@ class Ui_FeedMe(object):
         self.nutritionAddedSugarsInfoLabel.setText(_translate("FeedMe", "0/0 g"))
         self.nutritionProteinLabel.setText(_translate("FeedMe", "Protein"))
         self.nutritionProteinInfoLabel.setText(_translate("FeedMe", "0/0 g"))
+
+
 from pages import fonts_rc
 from pages import icons_rc
