@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtWidgets
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QFontDatabase
 from pages.MainWindow_ui import Ui_FeedMe
 from models.searchTableModel import SearchTableModel
 from models.foodItemTableModel import FoodItemTableModel
@@ -13,6 +13,12 @@ from delegates.recipesTableDelegate import RecipesTableDelegate
 class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     def __init__(self):
         super(MainWindow, self).__init__()
+
+        # add custom font to database
+        QFontDatabase.addApplicationFont(
+            ":/fonts/resources/fonts/SourceSans3-VariableFont_wght.ttf"
+        )
+
         self.setupUi(self)
 
         ### set up sidebar button click events ###
@@ -117,7 +123,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
     # pass search text to model
     def searchRecipes(self):
-
         searchTerm = self.recipesLineEdit.text()
         ingredients = []
 

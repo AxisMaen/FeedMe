@@ -72,17 +72,17 @@ QPushButton:pressed {
         <string>   Food Search</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../resources/icons/searchIcon.ico</normaloff>../resources/icons/searchIcon.ico</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/icons/resources/icons/searchIcon.ico</normaloff>:/icons/resources/icons/searchIcon.ico</iconset>
        </property>
       </widget>
       <widget class="QLabel" name="sidebarLabel">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>20</y>
-         <width>121</width>
-         <height>41</height>
+         <x>5</x>
+         <y>10</y>
+         <width>191</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
@@ -131,8 +131,8 @@ QPushButton:pressed {
         <string>   Shopping List</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../resources/icons/listIcon.ico</normaloff>../resources/icons/listIcon.ico</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/icons/resources/icons/listIcon.ico</normaloff>:/icons/resources/icons/listIcon.ico</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="sidebarFridgeButton">
@@ -163,8 +163,8 @@ QPushButton:pressed {
         <string>   My Fridge</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../resources/icons/fridgeIcon.ico</normaloff>../resources/icons/fridgeIcon.ico</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/icons/resources/icons/fridgeIcon.ico</normaloff>:/icons/resources/icons/fridgeIcon.ico</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="sidebarRecipesButton">
@@ -195,8 +195,8 @@ QPushButton:pressed {
         <string>   Recipes</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../resources/icons/recipesIcon.ico</normaloff>../resources/icons/recipesIcon.ico</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/icons/resources/icons/recipesIcon.ico</normaloff>:/icons/resources/icons/recipesIcon.ico</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="sidebarNutritionButton">
@@ -227,8 +227,8 @@ QPushButton:pressed {
         <string>   Nutrition</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../resources/icons/nutritionIcon.ico</normaloff>../resources/icons/nutritionIcon.ico</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/icons/resources/icons/nutritionIcon.ico</normaloff>:/icons/resources/icons/nutritionIcon.ico</iconset>
        </property>
       </widget>
      </widget>
@@ -259,6 +259,12 @@ QPushButton:pressed {
             <width>781</width>
             <height>571</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Source Sans 3</family>
+            <pointsize>20</pointsize>
+           </font>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
@@ -493,8 +499,6 @@ List</string>
               <font>
                <family>Source Sans 3</family>
                <pointsize>20</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
               </font>
              </property>
              <property name="text">
@@ -687,8 +691,6 @@ QPushButton:pressed {
               <font>
                <family>Source Sans 3</family>
                <pointsize>20</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
               </font>
              </property>
              <property name="text">
@@ -850,8 +852,6 @@ QPushButton:pressed {
               <font>
                <family>Source Sans 3</family>
                <pointsize>20</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
               </font>
              </property>
              <property name="text">
@@ -1068,8 +1068,6 @@ List</string>
               <font>
                <family>Source Sans 3</family>
                <pointsize>20</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
               </font>
              </property>
              <property name="text">
@@ -1111,13 +1109,13 @@ List</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>127</width>
+                  <width>150</width>
                   <height>40</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>127</width>
+                  <width>200</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -2335,7 +2333,8 @@ List</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../resources/resources.qrc"/>
+  <include location="icons.qrc"/>
+  <include location="fonts.qrc"/>
  </resources>
  <connections/>
 </ui>

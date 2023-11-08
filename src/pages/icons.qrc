@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>resources/icons/fridgeIcon.ico</file>
+    <file>resources/icons/listIcon.ico</file>
+    <file>resources/icons/nutritionIcon.ico</file>
+    <file>resources/icons/recipesIcon.ico</file>
+    <file>resources/icons/searchIcon.ico</file>
+  </qresource>
+</RCC>
