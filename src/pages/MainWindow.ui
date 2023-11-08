@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
+    <width>1050</width>
     <height>709</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1024</width>
+    <width>1050</width>
     <height>709</height>
    </size>
   </property>
@@ -481,8 +481,8 @@ QPushButton:pressed {
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>111</width>
-                  <height>71</height>
+                  <width>120</width>
+                  <height>80</height>
                  </size>
                 </property>
                 <property name="font">
@@ -623,6 +623,19 @@ List</string>
                  <bool>false</bool>
                 </attribute>
                </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
               <item>
                <widget class="QWidget" name="widget" native="true">
@@ -1054,13 +1067,13 @@ QPushButton:pressed {
                 <property name="minimumSize">
                  <size>
                   <width>111</width>
-                  <height>71</height>
+                  <height>85</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>111</width>
-                  <height>71</height>
+                  <width>120</width>
+                  <height>80</height>
                  </size>
                 </property>
                 <property name="font">
@@ -1138,17 +1151,17 @@ List</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignLeft">
             <widget class="QWidget" name="nutritionNumOfDaysWidget" native="true">
              <property name="minimumSize">
               <size>
-               <width>197</width>
+               <width>200</width>
                <height>58</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>201</width>
+               <width>300</width>
                <height>58</height>
               </size>
              </property>
@@ -1156,20 +1169,20 @@ List</string>
               <item>
                <widget class="QLabel" name="nutritionNumOfDaysLabel">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>140</width>
                   <height>40</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>200</width>
+                  <width>180</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -1354,20 +1367,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionCaloriesInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1475,20 +1488,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionTotalFatInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1599,20 +1612,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionSaturatedFatInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1720,20 +1733,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionCholesterolInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1841,20 +1854,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionSodiumInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1898,7 +1911,7 @@ List</string>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>16777215</width>
+                     <width>361</width>
                      <height>31</height>
                     </size>
                    </property>
@@ -1931,7 +1944,7 @@ List</string>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>160</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -1962,20 +1975,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionTotalCarbsInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -2086,20 +2099,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionFibersInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -2207,20 +2220,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionAddedSugarsInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>85</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
@@ -2328,20 +2341,20 @@ List</string>
                     <item>
                      <widget class="QLabel" name="nutritionProteinInfoLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>138</width>
+                        <width>80</width>
                         <height>22</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
+                        <width>110</width>
                         <height>22</height>
                        </size>
                       </property>
