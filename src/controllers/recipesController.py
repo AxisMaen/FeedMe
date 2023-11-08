@@ -48,6 +48,11 @@ class RecipesController:
                         continue
                     recipeItem[formattedName] = nutrient["amount"]
 
+                # check if any nutrients were not added, set to 0 if not added
+                for nutrient in RETRIEVED_NUTRIENTS.keys():
+                    if nutrient not in recipeItem.keys():
+                        recipeItem[nutrient] = 0
+
                 recipeData.append(recipeItem)
 
             return recipeData
