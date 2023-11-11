@@ -57,7 +57,6 @@ class RecipesController:
 
             return recipeData
         except Exception as e:
-            print(e)
             return [{"error": "Error retrieving data"}]
 
     # return a QPixmap of the image

@@ -145,7 +145,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
             )
             selectedData = self.fridgeTableModel.getSelectedData([selectedIndexes])
 
+        # use search model to get nutrition data for selected food item
+        foodItemId = selectedData[0]["id"]
+
+        foodNutritionData = self.searchTableModel.getFoodItemNutrition(foodItemId)
+
         # set food detail labels before opening page
+        # check for error
 
         self.mainWindowStack.setCurrentIndex(5)
 

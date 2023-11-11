@@ -40,3 +40,11 @@ class SearchTableModel(QAbstractTableModel):
             selectedData.append(self.foodData[i])
 
         return selectedData
+
+    def getFoodItemNutrition(self, foodItemId: int) -> dict:
+        """
+        Get nutrition data for the food item with the given id
+        @return - dict where keys are the name of the nutrient and value is the amount of the nutrient
+        """
+
+        return self.controller.getFoodItemNutrition(foodItemId)

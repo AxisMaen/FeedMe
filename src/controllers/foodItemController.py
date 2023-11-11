@@ -1,6 +1,7 @@
 from clients.foodItemApiClient import FoodItemApiClient
 from PyQt5.QtGui import QPixmap
 import string
+from config.constants import RETRIEVED_NUTRIENTS
 
 
 class FoodItemController:
@@ -23,7 +24,7 @@ class FoodItemController:
             if "error" in data.keys():
                 return [data]
 
-            # if not results are found, display a messsage
+            # if no results are found, display a messsage
             if not data["results"]:
                 return [{"error": "No results found"}]
 
@@ -55,3 +56,34 @@ class FoodItemController:
         # create pixmap based on data
         pixmap.loadFromData(imageData)
         return pixmap
+
+    def getFoodItemNutrition(self, foodItemId: int) -> dict:
+        try:
+            data = self.client.getFoodItemNutrition(foodItemId)
+
+            # if an error occured, return it to be displayed
+            if "error" in data.keys():
+                return [data]
+
+            # if no results are found, display a messsage
+            if not data["nutrition"]:
+                return {"error": "No nutrition data found"}
+
+            # get nutrition information
+            foodItemNutrients = {}
+            for nutrient in data["nutrition"]["nutrients"]:
+                formattedName = nutrient["name"].lower().replace(" ", "")
+
+                # only get certain nutrients
+                if formattedName not in RETRIEVED_NUTRIENTS.keys():
+                    continue
+                foodItemNutrients[formattedName] = nutrient["amount"]
+
+            # check if any nutrients were not added, set to 0 if not added
+            for nutrient in RETRIEVED_NUTRIENTS.keys():
+                if nutrient not in foodItemNutrients.keys():
+                    foodItemNutrients[nutrient] = 0
+
+            return foodItemNutrients
+        except:
+            return [{"error": "Error retrieving data"}]

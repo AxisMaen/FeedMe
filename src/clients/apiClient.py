@@ -19,6 +19,14 @@ class ApiClient:
         @param params - dict where key is the name of the query param and value is the value of the query param
         @return - dict of data from the endpoint's response, return dict with error key if error occurs
         """
+        # add param to path if needed
+        if "<" in endpoint:
+            # get param name in endpoint
+            firstIndex = endpoint.find("<")
+            lastIndex = endpoint.find(">")
+            paramName = endpoint[firstIndex + 1 : lastIndex]  # does not include <>
+            endpoint = endpoint.replace("<" + paramName + ">", str(params[paramName]))
+
         url = self.baseUrl + endpoint
 
         # add api key to query params
