@@ -28,6 +28,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.sidebarRecipesButton.clicked.connect(self.sidebarRecipesButtonClicked)
         self.sidebarNutritionButton.clicked.connect(self.sidebarNutritionButtonClicked)
 
+        ### set up open detail page events
+        self.searchTableView.doubleClicked.connect(self.openFoodDetailPage)
+        self.shoppingTableView.doubleClicked.connect(self.openFoodDetailPage)
+        self.fridgeTableView.doubleClicked.connect(self.openFoodDetailPage)
+
         ### set up search bar events ###
         self.searchLineEdit.returnPressed.connect(self.searchFoodItems)
         self.recipesLineEdit.returnPressed.connect(self.searchRecipes)
@@ -116,6 +121,36 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     # switch to recipes page when sidebar button is clicked
     def sidebarNutritionButtonClicked(self):
         self.mainWindowStack.setCurrentIndex(4)
+
+    # get selected nutrition data and open food detail page
+    def openFoodDetailPage(self):
+        # determine which table to pull data from
+        # search page
+        selectedData = []
+        if self.mainWindowStack.currentIndex() == 0:
+            selectedIndexes = (
+                self.searchTableView.selectionModel().selectedRows()[0].row()
+            )
+            selectedData = self.searchTableModel.getSelectedData([selectedIndexes])
+        # shopping list page
+        elif self.mainWindowStack.currentIndex() == 1:
+            selectedIndexes = (
+                self.shoppingTableView.selectionModel().selectedRows()[0].row()
+            )
+            selectedData = self.shoppingTableModel.getSelectedData([selectedIndexes])
+        # fridge page
+        else:
+            selectedIndexes = (
+                self.fridgeTableView.selectionModel().selectedRows()[0].row()
+            )
+            selectedData = self.fridgeTableModel.getSelectedData([selectedIndexes])
+
+        # set food detail labels before opening page
+
+        self.mainWindowStack.setCurrentIndex(5)
+
+    def setFoodDetailLabels(self, nutritionData):
+        pass
 
     # pass search text to model
     def searchFoodItems(self):

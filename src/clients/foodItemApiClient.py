@@ -15,7 +15,7 @@ class FoodItemApiClient(ApiClient):
         return self.sendRequest(endpoint, params)
 
     def getFoodItemImage(self, imageName):
-        size = "100x100"
+        size = "250x250"
         url = "https://spoonacular.com/cdn/ingredients_" + size + "/" + imageName
 
         return self.sendImageRequest(url)
