@@ -147,16 +147,89 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         # use search model to get nutrition data for selected food item
         foodItemId = selectedData[0]["id"]
+        foodItemName = selectedData[0]["name"]
+        foodImage = selectedData[0]["pixmap"]
 
-        foodNutritionData = self.searchTableModel.getFoodItemNutrition(foodItemId)
+        # get nutrition data
+        nutritionData = self.searchTableModel.getFoodItemNutrition(foodItemId)
+        recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(1)
 
-        # set food detail labels before opening page
         # check for error
+        if "error" in nutritionData.keys():
+            # set image label to display error message
+            self.foodDetailImage.setText(nutritionData["error"])
+            # set nutrition labels to empty
+            self.foodDetailCaloriesInfoLabel.setText("")
+            self.foodDetailTotalFatInfoLabel.setText("")
+            self.foodDetailSaturatedFatInfoLabel.setText("")
+            self.foodDetailCholesterolInfoLabel.setText("")
+            self.foodDetailSodiumInfoLabel.setText("")
+            self.foodDetailTotalCarbsInfoLabel.setText("")
+            self.foodDetailFibersInfoLabel.setText("")
+            self.foodDetailAddedSugarsInfoLabel.setText("")
+            self.foodDetailProteinInfoLabel.setText("")
+        else:
+            # set data to labels
+            self.foodDetailImage.setPixmap(foodImage)
+            self.foodDetailNameLabel.setText(foodItemName)
 
+            self.foodDetailCaloriesInfoLabel.setText(
+                format(int(nutritionData["calories"]), ",")
+                + "/"
+                + format(int(recommendedData["calories"]), ",")
+                + " kCal"
+            )
+            self.foodDetailTotalFatInfoLabel.setText(
+                format(int(nutritionData["fat"]), ",")
+                + "/"
+                + format(int(recommendedData["fat"]), ",")
+                + " g"
+            )
+            self.foodDetailSaturatedFatInfoLabel.setText(
+                format(int(nutritionData["saturatedfat"]), ",")
+                + "/"
+                + format(int(recommendedData["saturatedfat"]), ",")
+                + " g"
+            )
+            self.foodDetailCholesterolInfoLabel.setText(
+                format(int(nutritionData["cholesterol"]), ",")
+                + "/"
+                + format(int(recommendedData["cholesterol"]), ",")
+                + " mg"
+            )
+            self.foodDetailSodiumInfoLabel.setText(
+                format(int(nutritionData["sodium"]), ",")
+                + "/"
+                + format(int(recommendedData["sodium"]), ",")
+                + " mg"
+            )
+            self.foodDetailTotalCarbsInfoLabel.setText(
+                format(int(nutritionData["carbohydrates"]), ",")
+                + "/"
+                + format(int(recommendedData["carbohydrates"]), ",")
+                + " g"
+            )
+            self.foodDetailFibersInfoLabel.setText(
+                format(int(nutritionData["fiber"]), ",")
+                + "/"
+                + format(int(recommendedData["fiber"]), ",")
+                + " g"
+            )
+            self.foodDetailAddedSugarsInfoLabel.setText(
+                format(int(nutritionData["sugar"]), ",")
+                + "/"
+                + format(int(recommendedData["sugar"]), ",")
+                + " g"
+            )
+            self.foodDetailProteinInfoLabel.setText(
+                format(int(nutritionData["protein"]), ",")
+                + "/"
+                + format(int(recommendedData["protein"]), ",")
+                + " g"
+            )
+
+        # display food detail page
         self.mainWindowStack.setCurrentIndex(5)
-
-    def setFoodDetailLabels(self, nutritionData):
-        pass
 
     # pass search text to model
     def searchFoodItems(self):
@@ -244,7 +317,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         """
         Calls the nutrition aggregation algorithm to update the labels
         """
-        recipes = self.nutritionTableModel.recipeData
         numOfDays = self.nutritionSpinBox.value()
 
         # run nutrition algorithm

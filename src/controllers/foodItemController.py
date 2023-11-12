@@ -63,7 +63,7 @@ class FoodItemController:
 
             # if an error occured, return it to be displayed
             if "error" in data.keys():
-                return [data]
+                return data
 
             # if no results are found, display a messsage
             if not data["nutrition"]:
@@ -86,4 +86,4 @@ class FoodItemController:
 
             return foodItemNutrients
         except:
-            return [{"error": "Error retrieving data"}]
+            return {"error": "Error retrieving data"}
