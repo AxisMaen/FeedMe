@@ -24,6 +24,13 @@ def test_get_nutrition_info(requests_mock):
                     "nutrients": [
                         {"name": "calories", "amount": 50},
                         {"name": "fat", "amount": 30},
+                        {"name": "saturatedfat", "amount": 100},
+                        {"name": "cholesterol", "amount": 100},
+                        {"name": "sodium", "amount": 100},
+                        {"name": "carbohydrates", "amount": 100},
+                        {"name": "fiber", "amount": 100},
+                        {"name": "sugar", "amount": 100},
+                        {"name": "protein", "amount": 100},
                     ]
                 },
             },
@@ -35,6 +42,13 @@ def test_get_nutrition_info(requests_mock):
                     "nutrients": [
                         {"name": "calories", "amount": 80},
                         {"name": "fat", "amount": 100},
+                        {"name": "saturatedfat", "amount": 100},
+                        {"name": "cholesterol", "amount": 100},
+                        {"name": "sodium", "amount": 100},
+                        {"name": "carbohydrates", "amount": 100},
+                        {"name": "fiber", "amount": 100},
+                        {"name": "sugar", "amount": 100},
+                        {"name": "protein", "amount": 100},
                     ]
                 },
             },
@@ -42,8 +56,32 @@ def test_get_nutrition_info(requests_mock):
     }
 
     mockModelData = [
-        {"id": 1, "name": "Sandwich", "calories": 50, "fat": 30},
-        {"id": 2, "name": "Pizza", "calories": 80, "fat": 100},
+        {
+            "id": 1,
+            "name": "Sandwich",
+            "calories": 50,
+            "fat": 30,
+            "saturatedfat": 100,
+            "cholesterol": 100,
+            "sodium": 100,
+            "carbohydrates": 100,
+            "fiber": 100,
+            "sugar": 100,
+            "protein": 100,
+        },
+        {
+            "id": 2,
+            "name": "Pizza",
+            "calories": 80,
+            "fat": 100,
+            "saturatedfat": 100,
+            "cholesterol": 100,
+            "sodium": 100,
+            "carbohydrates": 100,
+            "fiber": 100,
+            "sugar": 100,
+            "protein": 100,
+        },
     ]
 
     # create the mock response with a success code
@@ -62,6 +100,9 @@ def test_get_nutrition_info(requests_mock):
         item.pop("pixmap")
 
     # ensure that food items were added to the model
+    print("HIIIIIII")
+    print(recipeModelData)
+    print(mockModelData)
     assert recipeModelData == mockModelData
 
 

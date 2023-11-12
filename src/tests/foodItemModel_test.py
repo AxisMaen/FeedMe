@@ -162,3 +162,121 @@ def test_remove_search_items_from_shopping_list(requests_mock):
         item.pop("pixmap")
 
     assert shoppingModelData == mockModelData
+
+
+# Test ID: UT-12
+def test_get_food_item_nutrition_error(requests_mock):
+    # test the controller function when an error is returned
+    controller = FoodItemController()
+
+    # test response with no nutrition data
+    mockResponse = {"mock": "mock response"}
+
+    # set the mock response
+    requests_mock.get(
+        controller.client.baseUrl + controller.client.endpoints["nutrition"],
+        status_code=200,
+        json=mockResponse,
+    )
+
+    response = controller.getFoodItemNutrition(1)
+
+    # ensure the error is handled
+    assert "error" in response.keys()
+
+
+# Test ID: UT-13
+def test_get_food_item_nutrition_missing_nutrients(requests_mock):
+    # test the controller function when the mock response does not return all nutrients
+    controller = FoodItemController()
+
+    # test response with missing nutrition data
+    mockApiResponse = {
+        "id": 1,
+        "name": "tomato",
+        "nutrition": {
+            "nutrients": [
+                {"name": "Calories", "amount": 80},
+                {"name": "Fat", "amount": 100},
+                {"name": "Saturated Fat", "amount": 100},
+                {"name": "Cholesterol", "amount": 100},
+                {"name": "Sodium", "amount": 100},
+                {"name": "Carbohydrates", "amount": 100},
+                {"name": "Protein", "amount": 100},
+            ]
+        },
+    }
+
+    expectedResponse = {
+        "calories": 80,
+        "fat": 100,
+        "saturatedfat": 100,
+        "cholesterol": 100,
+        "sodium": 100,
+        "carbohydrates": 100,
+        "fiber": 0,
+        "sugar": 0,
+        "protein": 100,
+    }
+
+    # set the mock response
+    requests_mock.get(
+        controller.client.baseUrl
+        + controller.client.endpoints["nutrition"].replace("<id>", "1"),
+        status_code=200,
+        json=mockApiResponse,
+    )
+
+    response = controller.getFoodItemNutrition(1)
+
+    assert response == expectedResponse
+
+
+# Test ID: ST-6
+def test_get_food_item_nutrition(requests_mock):
+    # call the search table model function to get food item nutrition
+
+    model = SearchTableModel()
+
+    # mock response
+    mockApiResponse = {
+        "id": 1,
+        "name": "tomato",
+        "nutrition": {
+            "nutrients": [
+                {"name": "Calories", "amount": 80},
+                {"name": "Fat", "amount": 100},
+                {"name": "Saturated Fat", "amount": 100},
+                {"name": "Cholesterol", "amount": 100},
+                {"name": "Sodium", "amount": 100},
+                {"name": "Carbohydrates", "amount": 100},
+                {"name": "Fiber", "amount": 100},
+                {"name": "Sugar", "amount": 100},
+                {"name": "Protein", "amount": 100},
+            ]
+        },
+    }
+
+    expectedResponse = {
+        "calories": 80,
+        "fat": 100,
+        "saturatedfat": 100,
+        "cholesterol": 100,
+        "sodium": 100,
+        "carbohydrates": 100,
+        "fiber": 100,
+        "sugar": 100,
+        "protein": 100,
+    }
+
+    # set the mock response
+    requests_mock.get(
+        model.controller.client.baseUrl
+        + model.controller.client.endpoints["nutrition"].replace("<id>", "1"),
+        status_code=200,
+        json=mockApiResponse,
+    )
+
+    response = model.getFoodItemNutrition(1)
+
+    assert expectedResponse == response
