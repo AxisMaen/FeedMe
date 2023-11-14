@@ -32,6 +32,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.searchTableView.doubleClicked.connect(self.openFoodDetailPage)
         self.shoppingTableView.doubleClicked.connect(self.openFoodDetailPage)
         self.fridgeTableView.doubleClicked.connect(self.openFoodDetailPage)
+        self.recipesTableView.doubleClicked.connect(self.openRecipeDetailPage)
+        self.nutritionTableView.doubleClicked.connect(self.openRecipeDetailPage)
 
         ### set up search bar events ###
         self.searchLineEdit.returnPressed.connect(self.searchFoodItems)
@@ -230,6 +232,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         # display food detail page
         self.mainWindowStack.setCurrentIndex(5)
+
+    # get data for selected recipe and open recipe detail page
+    def openRecipeDetailPage(self):
+        # display recipe detail page
+        self.mainWindowStack.setCurrentIndex(6)
 
     # pass search text to model
     def searchFoodItems(self):

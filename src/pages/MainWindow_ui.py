@@ -2181,5 +2181,5 @@ class Ui_FeedMe(object):
         self.recipeDetailAddedSugarsInfoLabel.setText(_translate("FeedMe", "0/0 g"))
         self.recipeDetailProteinLabel.setText(_translate("FeedMe", "Protein"))
         self.recipeDetailProteinInfoLabel.setText(_translate("FeedMe", "0/0 g"))
-import fonts_rc
-import icons_rc
+from pages import fonts_rc
+from pages import icons_rc
