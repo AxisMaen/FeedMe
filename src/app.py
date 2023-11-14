@@ -253,10 +253,91 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         recipeName = selectedData[0]["name"]
         recipeImage = selectedData[0]["pixmap"]
 
-        ingredientsData = self.recipesTableModel.getRecipeIngredients(recipeId)
-        instructionData = self.recipesTableModel.getRecipeInstructions(recipeId)
-        print(instructionData)
+        # use recipe model to get data for selected recipe
+        nutritionData = selectedData[0]
         recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(1)
+        ingredientsData = self.recipesTableModel.getRecipeIngredients(recipeId)
+        instructionsData = self.recipesTableModel.getRecipeInstructions(recipeId)
+
+        # set ingredient and instruction text
+        ingredientsText = "\n".join(ingredientsData)
+        instructionsText = "\n\n".join(instructionsData)
+        self.recipeDetailIngredientsTextEdit.setText(ingredientsText)
+        self.recipeDetailInstructionsTextEdit.setText(instructionsText)
+
+        # check for error
+        if "error" in nutritionData.keys():
+            # set image label to display error message
+            self.recipeDetailImage.setText(nutritionData["error"])
+            # set nutrition labels to empty
+            self.recipeDetailCaloriesInfoLabel.setText("")
+            self.recipeDetailTotalFatInfoLabel.setText("")
+            self.recipeDetailSaturatedFatInfoLabel.setText("")
+            self.recipeDetailCholesterolInfoLabel.setText("")
+            self.recipeDetailSodiumInfoLabel.setText("")
+            self.recipeDetailTotalCarbsInfoLabel.setText("")
+            self.recipeDetailFibersInfoLabel.setText("")
+            self.recipeDetailAddedSugarsInfoLabel.setText("")
+            self.recipeDetailProteinInfoLabel.setText("")
+        else:
+            # set data to labels
+            self.recipeDetailImage.setPixmap(recipeImage)
+            self.recipeDetailNameLabel.setText(recipeName)
+
+            self.recipeDetailCaloriesInfoLabel.setText(
+                format(int(nutritionData["calories"]), ",")
+                + "/"
+                + format(int(recommendedData["calories"]), ",")
+                + " kCal"
+            )
+            self.recipeDetailTotalFatInfoLabel.setText(
+                format(int(nutritionData["fat"]), ",")
+                + "/"
+                + format(int(recommendedData["fat"]), ",")
+                + " g"
+            )
+            self.recipeDetailSaturatedFatInfoLabel.setText(
+                format(int(nutritionData["saturatedfat"]), ",")
+                + "/"
+                + format(int(recommendedData["saturatedfat"]), ",")
+                + " g"
+            )
+            self.recipeDetailCholesterolInfoLabel.setText(
+                format(int(nutritionData["cholesterol"]), ",")
+                + "/"
+                + format(int(recommendedData["cholesterol"]), ",")
+                + " mg"
+            )
+            self.recipeDetailSodiumInfoLabel.setText(
+                format(int(nutritionData["sodium"]), ",")
+                + "/"
+                + format(int(recommendedData["sodium"]), ",")
+                + " mg"
+            )
+            self.recipeDetailTotalCarbsInfoLabel.setText(
+                format(int(nutritionData["carbohydrates"]), ",")
+                + "/"
+                + format(int(recommendedData["carbohydrates"]), ",")
+                + " g"
+            )
+            self.recipeDetailFibersInfoLabel.setText(
+                format(int(nutritionData["fiber"]), ",")
+                + "/"
+                + format(int(recommendedData["fiber"]), ",")
+                + " g"
+            )
+            self.recipeDetailAddedSugarsInfoLabel.setText(
+                format(int(nutritionData["sugar"]), ",")
+                + "/"
+                + format(int(recommendedData["sugar"]), ",")
+                + " g"
+            )
+            self.recipeDetailProteinInfoLabel.setText(
+                format(int(nutritionData["protein"]), ",")
+                + "/"
+                + format(int(recommendedData["protein"]), ",")
+                + " g"
+            )
 
         # display recipe detail page
         self.mainWindowStack.setCurrentIndex(6)
