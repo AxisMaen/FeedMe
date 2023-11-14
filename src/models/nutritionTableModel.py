@@ -36,6 +36,17 @@ class NutritionTableModel(QAbstractTableModel):
         # update the view
         self.layoutChanged.emit()
 
+    # get the selected recipe data
+    def getSelectedData(self, selectedIndexes: list):
+        selectedData = []
+        for i in selectedIndexes:
+            if "error" in self.recipeData[i].keys():
+                # do not select errors
+                return
+            selectedData.append(self.recipeData[i])
+
+        return selectedData
+
     def getAggregateRecipeNutrition(self, numOfDays: int) -> dict:
         """
         Aggregate recipe data over the given number of days

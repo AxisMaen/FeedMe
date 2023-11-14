@@ -147,12 +147,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
             )
             selectedData = self.fridgeTableModel.getSelectedData([selectedIndexes])
 
-        # use search model to get nutrition data for selected food item
         foodItemId = selectedData[0]["id"]
         foodItemName = selectedData[0]["name"]
         foodImage = selectedData[0]["pixmap"]
 
-        # get nutrition data
+        # use search model to get nutrition data for selected food item
         nutritionData = self.searchTableModel.getFoodItemNutrition(foodItemId)
         recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(1)
 
@@ -235,6 +234,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
     # get data for selected recipe and open recipe detail page
     def openRecipeDetailPage(self):
+        # determine which table to pull data from
+        # recipe page
+        selectedData = []
+        if self.mainWindowStack.currentIndex() == 3:
+            selectedIndexes = (
+                self.recipesTableView.selectionModel().selectedRows()[0].row()
+            )
+            selectedData = self.recipesTableModel.getSelectedData([selectedIndexes])
+        # nutrition page
+        else:
+            selectedIndexes = (
+                self.nutritionTableView.selectionModel().selectedRows()[0].row()
+            )
+            selectedData = self.nutritionTableModel.getSelectedData([selectedIndexes])
+
+        recipeId = selectedData[0]["id"]
+        recipeName = selectedData[0]["name"]
+        recipeImage = selectedData[0]["pixmap"]
+
+        ingredientsData = self.recipesTableModel.getRecipeIngredients(recipeId)
+        instructionData = self.recipesTableModel.getRecipeInstructions(recipeId)
+        print(instructionData)
+        recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(1)
+
         # display recipe detail page
         self.mainWindowStack.setCurrentIndex(6)
 

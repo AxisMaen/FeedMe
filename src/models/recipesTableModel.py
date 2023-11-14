@@ -40,3 +40,19 @@ class RecipesTableModel(QAbstractTableModel):
             selectedData.append(self.recipeData[i])
 
         return selectedData
+
+    def getRecipeIngredients(self, recipeId: int) -> list:
+        """
+        Get all the ingredients in the recipe with the given id
+        @return - list of strings where each string describes the ingredient and its quantity
+        """
+
+        return self.controller.getRecipeIngredients(recipeId)
+
+    def getRecipeInstructions(self, recipeId: int) -> list:
+        """
+        Get all the instructions in the recipe with the given id
+        @return - list of strings where each string describes an instruction, list is ordered by the order of the instructions
+        """
+
+        return self.controller.getRecipeInstructions(recipeId)

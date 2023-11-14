@@ -40,6 +40,10 @@ class ApiClient:
             # check for errors
             response.raise_for_status()
 
+            # convert JSON array to JSON object if needed
+            if isinstance(responseJson, list):
+                responseJson = responseJson[0]
+
             # return data if no errors
             return responseJson
         # error handling

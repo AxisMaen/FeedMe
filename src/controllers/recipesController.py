@@ -72,3 +72,55 @@ class RecipesController:
         # create pixmap based on data
         pixmap.loadFromData(imageData)
         return pixmap
+
+    def getRecipeIngredients(self, recipeId: int) -> list:
+        try:
+            data = self.client.getRecipeIngredients(recipeId)
+
+            # if an error occured, return it to be displayed
+            if "error" in data.keys():
+                return [data["error"]]
+
+            # if no results are found, display a messsage
+            if not data["extendedIngredients"]:
+                return ["No ingredient data found"]
+
+            # parse ingredient information
+            recipeIngredients = []
+            for ingredient in data["extendedIngredients"]:
+                ingredientName = ingredient["originalName"]
+                ingredientQty = ingredient["measures"]["us"]["amount"]
+                ingredientUnit = ingredient["measures"]["us"]["unitShort"]
+                recipeIngredients.append(
+                    "{0} {1} {2}".format(
+                        ingredientQty, ingredientUnit.strip(), ingredientName.strip()
+                    )
+                )
+
+            return recipeIngredients
+        except:
+            return ["Error retrieving data"]
+
+    def getRecipeInstructions(self, recipeId: int) -> list:
+        try:
+            data = self.client.getRecipeInstructions(recipeId)
+
+            # if an error occured, return it to be displayed
+            if "error" in data.keys():
+                return [data["error"]]
+
+            # if no results are found, display a messsage
+            if not data["steps"]:
+                return ["No instruction data found"]
+
+            # parse instruction information
+            recipeInstructions = []
+            for i in range(len(data["steps"])):
+                instructionText = data["steps"][i]["step"]
+                recipeInstructions.append(
+                    "{0}. {1}".format(i + 1, instructionText.strip())
+                )
+
+            return recipeInstructions
+        except Exception as err:
+            return ["Error retrieving data"]
