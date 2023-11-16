@@ -56,7 +56,7 @@ class RecipesController:
                 recipeData.append(recipeItem)
 
             return recipeData
-        except Exception as e:
+        except:
             return [{"error": "Error retrieving data"}]
 
     # return a QPixmap of the image

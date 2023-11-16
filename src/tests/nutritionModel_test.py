@@ -100,9 +100,6 @@ def test_get_nutrition_info(requests_mock):
         item.pop("pixmap")
 
     # ensure that food items were added to the model
-    print("HIIIIIII")
-    print(recipeModelData)
-    print(mockModelData)
     assert recipeModelData == mockModelData
 
 
