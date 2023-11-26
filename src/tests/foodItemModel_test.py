@@ -2,7 +2,11 @@ from controllers.foodItemController import FoodItemController
 from models.searchTableModel import SearchTableModel
 from models.foodItemTableModel import FoodItemTableModel
 import sys
+from io import StringIO, BytesIO
+import pickle
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtGui import QPixmap
+from qtHelpers.Pickled_QPixmap import Pickled_QPixmap
 
 
 # Test ID: UT-5
@@ -280,3 +284,59 @@ def test_get_food_item_nutrition(requests_mock):
     response = model.getFoodItemNutrition(1)
 
     assert expectedResponse == response
+
+
+# Test ID: UT-16
+def test_load_empty_data(requests_mock):
+    # attempt to load data from a location that does not exist
+
+    model = FoodItemTableModel()
+
+    model.loadData("testpath")
+
+    # ensure data is not loaded to the model
+    assert model.foodData == []
+
+
+# Test ID: UT-17
+def test_load_corrupt_data(mocker):
+    # attempt to load data that does not match the proper format
+
+    model = FoodItemTableModel()
+
+    # mock the opened file to contain gibberish text
+    mockContents = "test"
+    mockedFile = mocker.patch("builtins.open")
+    mockedFile.return_value = StringIO(mockContents)
+
+    model.loadData("testpath")
+
+    # ensure data is not loaded to the model
+    assert model.foodData == []
+
+
+# Test ID: ST-8
+def test_load_food_data(mocker):
+    # create mock pickle data to load
+    # QApplication needed for some PyQt elements to not hang tests
+    qApp = QApplication(sys.argv)
+
+    model = FoodItemTableModel()
+
+    # pixmap not included for simplicity
+    expectedData = [{"name": "Banana", "id": 9040}]
+
+    mockContents = pickle.dumps(
+        [{"name": "Banana", "id": 9040, "pixmap": Pickled_QPixmap(QPixmap())}]
+    )
+    mockedFile = mocker.patch("builtins.open")
+    mockedFile.return_value = BytesIO(mockContents)
+
+    model.loadData("testPath")
+
+    # remove pixmaps from the comparison for simplicity
+    foodData = model.foodData
+    for item in foodData:
+        item.pop("pixmap")
+
+    assert foodData == expectedData
