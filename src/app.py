@@ -104,6 +104,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         self.recipesTableView.setFont(QFont("Source Sans 3", 12))
         self.nutritionTableView.setFont(QFont("Source Sans 3", 12))
 
+        ### load model data ###
+        self.shoppingTableModel.loadData("shoppingList.pkl")
+
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
         self.mainWindowStack.setCurrentIndex(0)
@@ -491,6 +494,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
             + format(int(recommendedData["protein"]), ",")
             + " g"
         )
+
+    # overload closeEvent to save data before exiting
+    def closeEvent(self, event):
+        self.shoppingTableModel.saveData("shoppingList.pkl")
+        event.accept()
 
 
 # create app and window instance

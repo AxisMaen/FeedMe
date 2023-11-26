@@ -6,3 +6,4 @@ src/dist/
 .pylintrc
 FeedMe.code-workspace
 src/tests/.coverage
+src/FeedMeData

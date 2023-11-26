@@ -1,4 +1,9 @@
 from PyQt5.QtCore import Qt, QAbstractTableModel
+from PyQt5.QtGui import QPixmap
+import os
+import sys
+import pickle
+from qtHelpers.Pickled_QPixmap import Pickled_QPixmap
 
 
 class FoodItemTableModel(QAbstractTableModel):
@@ -78,3 +83,59 @@ class FoodItemTableModel(QAbstractTableModel):
             names.append(item["name"])
 
         return names
+
+    def saveData(self, filename: str):
+        """
+        Load data in the model to a pickle file. This will overwrite any existing data
+        @param filename - name of the file to save data to (extension included)
+        """
+
+        try:
+            path = os.path.join(
+                os.path.dirname(os.path.abspath(sys.argv[0])),
+                "FeedMeData",
+                filename,
+            )
+
+            # create the path to save data if it doesn't exist
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+
+            # QPixmaps cannot be pickled, use substitute class
+            saveData = self.foodData
+            for foodItem in saveData:
+                # replace pixmaps with substitutes
+                foodItem["pixmap"] = Pickled_QPixmap(foodItem["pixmap"])
+
+            with open(path, "wb") as file:
+                pickle.dump(saveData, file)
+        except:
+            return
+
+    def loadData(self, filename):
+        """
+        Load data from a pickle file into the model
+        If the pickle file is not found or is invalid, import nothing
+        @param filename - name of the file to save data to (extension included)
+        """
+        try:
+            path = os.path.join(
+                os.path.dirname(os.path.abspath(sys.argv[0])),
+                "FeedMeData",
+                filename,
+            )
+
+            with open(path, "rb") as file:
+                loadedData = pickle.load(file)
+
+                # convert Pickled_QPixmap to normal QPixamp
+                for foodItem in loadedData:
+                    # replace pixmaps with substitutes
+                    foodItem["pixmap"] = QPixmap(foodItem["pixmap"])
+
+                self.foodData = loadedData
+
+            # update the view
+            self.layoutChanged.emit()
+        except:
+            # do not load data if there is an error
+            return
