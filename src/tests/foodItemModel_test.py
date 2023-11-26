@@ -10,7 +10,7 @@ from qtHelpers.Pickled_QPixmap import Pickled_QPixmap
 
 
 # Test ID: UT-5
-def test_add_to_shopping_list(requests_mock):
+def test_add_to_shopping_list():
     model = FoodItemTableModel()
 
     mockFoodItems = [
@@ -25,7 +25,7 @@ def test_add_to_shopping_list(requests_mock):
 
 
 # Test ID: UT-6
-def test_add_duplicate_to_shopping_list(requests_mock):
+def test_add_duplicate_to_shopping_list():
     model = FoodItemTableModel()
 
     mockFoodItems = [
@@ -90,7 +90,7 @@ def test_add_search_items_to_shopping_list(requests_mock):
 
 
 # Test ID: UT-7
-def test_remove_from_shopping_list(requests_mock):
+def test_remove_from_shopping_list():
     model = FoodItemTableModel()
 
     mockFoodItems = [
@@ -107,7 +107,7 @@ def test_remove_from_shopping_list(requests_mock):
 
 
 # Test ID: UT-8
-def test_remove_nothing_from_shopping_list(requests_mock):
+def test_remove_nothing_from_shopping_list():
     model = FoodItemTableModel()
 
     mockFoodItems = [
@@ -287,7 +287,7 @@ def test_get_food_item_nutrition(requests_mock):
 
 
 # Test ID: UT-16
-def test_load_empty_data(requests_mock):
+def test_load_empty_data():
     # attempt to load data from a location that does not exist
 
     model = FoodItemTableModel()
