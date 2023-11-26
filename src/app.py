@@ -106,6 +106,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
 
         ### load model data ###
         self.shoppingTableModel.loadData("shoppingList.pkl")
+        self.fridgeTableModel.loadData("fridgeList.pkl")
 
     # switch to search food page when sidebar button is clicked
     def sidebarSearchButtonClicked(self):
@@ -498,6 +499,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
     # overload closeEvent to save data before exiting
     def closeEvent(self, event):
         self.shoppingTableModel.saveData("shoppingList.pkl")
+        self.fridgeTableModel.saveData("fridgeList.pkl")
         event.accept()
 
 
