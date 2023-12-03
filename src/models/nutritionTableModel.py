@@ -47,22 +47,20 @@ class NutritionTableModel(QAbstractTableModel):
 
         return selectedData
 
-    def getAggregateRecipeNutrition(self, numOfDays: int) -> dict:
+    def getAggregateRecipeNutrition(self) -> dict:
         """
         Aggregate recipe data over the given number of days
         @param recipes - list of dicts where each dict is a recipe to be added (nutrition information included)
-        @param numOfDays - number of days to aggregate over
         @return - dict where the key is the name of the nutrient and the value is the aggregated value
         """
 
         # create a dict with keys for each nutrient, values initialized to 0
         aggregatedNutrition = dict.fromkeys(RETRIEVED_NUTRIENTS.keys(), 0)
 
-        # pull the nutrition information for each recipe, multiply by numOfDays before adding to aggregated dict
+        # pull the nutrition information for each recipe
         for recipe in self.recipeData:
             for nutrient in RETRIEVED_NUTRIENTS.keys():
-                nutrientTotal = recipe[nutrient] * numOfDays
-                nutrientTotalRecommended = RETRIEVED_NUTRIENTS[nutrient] * numOfDays
+                nutrientTotal = recipe[nutrient]
                 aggregatedNutrition[nutrient] += nutrientTotal
 
         return aggregatedNutrition

@@ -435,7 +435,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FeedMe):
         numOfDays = self.nutritionSpinBox.value()
 
         # run nutrition algorithm
-        nutritionData = self.nutritionTableModel.getAggregateRecipeNutrition(numOfDays)
+        nutritionData = self.nutritionTableModel.getAggregateRecipeNutrition()
         recommendedData = self.nutritionTableModel.getAggregateRecommendedNutrition(
             numOfDays
         )

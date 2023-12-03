@@ -167,15 +167,15 @@ def test_nutrition_aggregation():
 
     numOfDays = 3
     expectedRecipeNutritionResponse = {
-        "calories": 80 * numOfDays,
-        "fat": 40 * numOfDays,
-        "saturatedfat": 15 * numOfDays,
-        "cholesterol": 20 * numOfDays,
-        "sodium": 30 * numOfDays,
-        "carbohydrates": 35 * numOfDays,
-        "fiber": 55 * numOfDays,
-        "sugar": 30 * numOfDays,
-        "protein": 55 * numOfDays,
+        "calories": 80,
+        "fat": 40,
+        "saturatedfat": 15,
+        "cholesterol": 20,
+        "sodium": 30,
+        "carbohydrates": 35,
+        "fiber": 55,
+        "sugar": 30,
+        "protein": 55,
     }
     expectedRecommendedNutritionResponse = {
         "calories": 2000 * numOfDays,
@@ -191,8 +191,10 @@ def test_nutrition_aggregation():
 
     nutritionModel.addRecipes(mockRecipesData)
 
-    recipeNutritionResponse = nutritionModel.getAggregateRecipeNutrition(3)
-    recommendedNutritionResponse = nutritionModel.getAggregateRecommendedNutrition(3)
+    recipeNutritionResponse = nutritionModel.getAggregateRecipeNutrition()
+    recommendedNutritionResponse = nutritionModel.getAggregateRecommendedNutrition(
+        numOfDays
+    )
 
     assert recipeNutritionResponse == expectedRecipeNutritionResponse
     assert recommendedNutritionResponse == expectedRecommendedNutritionResponse
